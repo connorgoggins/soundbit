@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>pulse - Music, Audio and Radio web application</title>
+  <meta name="description" content="Music, Musician, Bootstrap" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimal-ui" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- for ios 7 style, multi-resolution icon of 152x152 -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-barstyle" content="black-translucent">
+  <link rel="apple-touch-icon" href="images/logo.png">
+  <meta name="apple-mobile-web-app-title" content="Flatkit">
+  <!-- for Chrome on Android, multi-resolution icon of 196x196 -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="shortcut icon" sizes="196x196" href="images/logo.png">
+  
+  <!-- style -->
+  <link rel="stylesheet" href="css/animate.css/animate.min.css" type="text/css" />
+  <link rel="stylesheet" href="css/glyphicons/glyphicons.css" type="text/css" />
+  <link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css" type="text/css" />
+  <link rel="stylesheet" href="css/material-design-icons/material-design-icons.css" type="text/css" />
+  <link rel="stylesheet" href="css/bootstrap/dist/css/bootstrap.min.css" type="text/css" />
+
+  <!-- build:css css/styles/app.min.css -->
+  <link rel="stylesheet" href="css/styles/app.css" type="text/css" />
+  <link rel="stylesheet" href="css/styles/style.css" type="text/css" />
+  <link rel="stylesheet" href="css/styles/font.css" type="text/css" />
+  
+  <link rel="stylesheet" href="libs/owl.carousel/dist/assets/owl.carousel.min.css" type="text/css" />
+  <link rel="stylesheet" href="libs/owl.carousel/dist/assets/owl.theme.css" type="text/css" />
+  <link rel="stylesheet" href="libs/mediaelement/build/mediaelementplayer.min.css" type="text/css" />
+  <link rel="stylesheet" href="libs/mediaelement/build/mep.css" type="text/css" />
+
+  <!-- endbuild -->
+</head>
+<body>
+  <div class="app dk" id="app">
+
+<!-- ############ LAYOUT START-->
+
+<div class="row-col">
+  <div class="col-md-2 w b-r light lt">
+    <div class="navside" ui-jp="stick_in_parent">
+      <div class="p-a">
+        <h5>pulse <small class="text-muted">docs</small></h5>
+      </div>
+      <nav class="nav-border b-primary">
+        <ul class="nav" ui-nav>
+          <li>
+            <a href="#build">
+              <span class="nav-text">Build</span>
+            </a>
+          </li>
+          <li>
+            <a href="#styles">
+              <span class="nav-text">Styles</span>
+            </a>
+          </li>
+          <li>
+            <a href="#scripts">
+              <span class="nav-text">Scripts</span>
+            </a>
+          </li>
+          <li>
+            <a href="#elements">
+              <span class="nav-label">
+                <b class="label label-sm primary">8</b>
+              </span>
+              <span class="nav-text">Elements</span>
+            </a>
+          </li>
+          <li>
+            <a href="#browser">
+              <span class="nav-text">Browser</span>
+            </a>
+          </li>
+          <li>
+            <a href="#libs">
+              <span class="nav-text">Libs</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+  
+  <div class="col-sm-9">
+    <div class="padding">
+      <div id="build">
+        <h2>Build tools</h2>
+        <p class="text-md">pulse uses <a href="http://nodejs.org" class="text-info">Grunt</a> for its CSS and JavaScript build system, it's optional, you can use this theme without grunt tools, we included all the dependencies in this theme.</p>
+        <ol>
+          <li><a href="https://nodejs.org/download" class="text-info">Download and install Node</a>, which we use to manage our dependencies.</li>
+          <li>Run <code>npm install -g bower grunt-cli</code></li>
+          <li>Run <code>bower install --force-latest</code> to install dependencies</li>
+          <li>Run <code>grunt build</code> to build dist with minified js and css</li>
+          <li>Run <code>npm start</code> to start server</li>
+        </ol>
+
+        <p class="m-t-md">
+          Note: any commands we tell you to run must be ran from the project's root folder.
+        </p>
+      </div>
+
+      <div id="includes">
+        <h2 class="m-t-lg m-b">What's include</h2>
+        <p>You'll find the following directories and files, grouping common resources and providing both compiled and minified distribution files, as well as raw source files.</p>
+        <pre class="box p-a black">
+  app/
+    |-- bower.json
+    |-- package.json
+    |-- GruntFile.js
+    |-- README.md
+    |-- CHANGELOG.md
+    |-- html/
+    |   |-- css/
+    |   |-- images/
+    |   |-- libs/
+    |   |-- scripts/
+    |   |   |-- app.js
+    |   |-- index.html</pre>
+      </div>
+      <div id="styles">
+        <h2 class="m-t-lg m-b">Styles / Scss</h2>
+        <p class="text-md">You can apply any provided colors to any blocks, even on the Light, Grey, Dark, Black theme.</p>
+        <p>The css file is generated by Scss files. There are many variables you can config to build the css file. many classes are extended from bootstrap css.</p>
+        <h6>
+          <a href="http://v4-alpha.getbootstrap.com/components/utilities/">
+            Utility classes 
+            <i class="fa fa-link text-muted"></i>
+          </a>
+        </h6>
+        <h6 class="pointer" ui-toggle-class="show" ui-target="#margin">Margin</h6>
+        <pre class="box p-a hide" id="margin">
+        .m-a-0 { margin:        0 !important; }
+        .m-t-0 { margin-top:    0 !important; }
+        .m-r-0 { margin-right:  0 !important; }
+        .m-b-0 { margin-bottom: 0 !important; }
+        .m-l-0 { margin-left:   0 !important; }
+        .m-x-0 { margin-right:  0 !important; margin-left:   0 !important; }
+        .m-y-0 { margin-top:    0 !important; margin-bottom: 0 !important; }
+
+        .m-a { margin:        $spacer !important; }
+        .m-t { margin-top:    $spacer-y !important; }
+        .m-r { margin-right:  $spacer-x !important; }
+        .m-b { margin-bottom: $spacer-y !important; }
+        .m-l { margin-left:   $spacer-x !important; }
+        .m-x { margin-right:  $spacer-x !important; margin-left: $spacer-x !important; }
+        .m-y { margin-top:    $spacer-y !important; margin-bottom: $spacer-y !important; }
+        .m-x-auto { margin-right: auto !important; margin-left: auto !important; }
+
+        .m-a-md { margin:        ($spacer * 1.5) !important; }
+        .m-t-md { margin-top:    ($spacer-y * 1.5) !important; }
+        .m-r-md { margin-right:  ($spacer-y * 1.5) !important; }
+        .m-b-md { margin-bottom: ($spacer-y * 1.5) !important; }
+        .m-l-md { margin-left:   ($spacer-y * 1.5) !important; }
+        .m-x-md { margin-right:  ($spacer-x * 1.5) !important; margin-left:   ($spacer-x * 1.5) !important; }
+        .m-y-md { margin-top:    ($spacer-y * 1.5) !important; margin-bottom: ($spacer-y * 1.5) !important; }
+
+        .m-a-lg { margin:        ($spacer * 3) !important; }
+        .m-t-lg { margin-top:    ($spacer-y * 3) !important; }
+        .m-r-lg { margin-right:  ($spacer-y * 3) !important; }
+        .m-b-lg { margin-bottom: ($spacer-y * 3) !important; }
+        .m-l-lg { margin-left:   ($spacer-y * 3) !important; }
+        .m-x-lg { margin-right:  ($spacer-x * 3) !important; margin-left:   ($spacer-x * 3) !important; }
+        .m-y-lg { margin-top:    ($spacer-y * 3) !important; margin-bottom: ($spacer-y * 3) !important; }
+
+        .m-a-sm { margin:        ($spacer * 0.5) !important; }
+        .m-t-sm { margin-top:    ($spacer-y * 0.5) !important; }
+        .m-r-sm { margin-right:  ($spacer-y * 0.5) !important; }
+        .m-b-sm { margin-bottom: ($spacer-y * 0.5) !important; }
+        .m-l-sm { margin-left:   ($spacer-y * 0.5) !important; }
+        .m-x-sm { margin-right:  ($spacer-x * 0.5) !important; margin-left:   ($spacer-x * 0.5) !important; }
+        .m-y-sm { margin-top:    ($spacer-y * 0.5) !important; margin-bottom: ($spacer-y * 0.5) !important; }
+
+        .m-a-xs { margin:        ($spacer * 0.25) !important; }
+        .m-t-xs { margin-top:    ($spacer-y * 0.25) !important; }
+        .m-r-xs { margin-right:  ($spacer-y * 0.25) !important; }
+        .m-b-xs { margin-bottom: ($spacer-y * 0.25) !important; }
+        .m-l-xs { margin-left:   ($spacer-y * 0.25) !important; }
+        .m-x-xs { margin-right:  ($spacer-x * 0.25) !important; margin-left:   ($spacer-x * 0.25) !important; }
+        .m-y-xs { margin-top:    ($spacer-y * 0.25) !important; margin-bottom: ($spacer-y * 0.25) !important; }
+        </pre>
+        <h6 class="pointer" ui-toggle-class="show" ui-target="#padding">Padding</h6>
+        <pre class="box p-a hide" id="padding">
+        .p-a-0 { padding:        0 !important; }
+        .p-t-0 { padding-top:    0 !important; }
+        .p-r-0 { padding-right:  0 !important; }
+        .p-b-0 { padding-bottom: 0 !important; }
+        .p-l-0 { padding-left:   0 !important; }
+
+        .p-a { padding:        @spacer !important; }
+        .p-t { padding-top:    @spacer-y !important; }
+        .p-r { padding-right:  @spacer-x !important; }
+        .p-b { padding-bottom: @spacer-y !important; }
+        .p-l { padding-left:   @spacer-x !important; }
+        .p-x { padding-right:  @spacer-x !important; padding-left:   @spacer-x !important; }
+        .p-y { padding-top:    @spacer-y !important; padding-bottom: @spacer-y !important; }
+
+        .p-a-md { padding:        (@spacer-y * 1.5) !important; }
+        .p-t-md { padding-top:    (@spacer-y * 1.5) !important; }
+        .p-r-md { padding-right:  (@spacer-y * 1.5) !important; }
+        .p-b-md { padding-bottom: (@spacer-y * 1.5) !important; }
+        .p-l-md { padding-left:   (@spacer-y * 1.5) !important; }
+        .p-x-md { padding-right:  (@spacer-x * 1.5) !important; padding-left:   (@spacer-x * 1.5) !important; }
+        .p-y-md { padding-top:    (@spacer-y * 1.5) !important; padding-bottom: (@spacer-y * 1.5) !important; }
+
+        .p-a-lg { padding:        (@spacer-y * 3) !important; }
+        .p-t-lg { padding-top:    (@spacer-y * 3) !important; }
+        .p-r-lg { padding-right:  (@spacer-y * 3) !important; }
+        .p-b-lg { padding-bottom: (@spacer-y * 3) !important; }
+        .p-l-lg { padding-left:   (@spacer-y * 3) !important; }
+        .p-x-lg { padding-right:  (@spacer-x * 3) !important; padding-left:   (@spacer-x * 3) !important; }
+        .p-y-lg { padding-top:    (@spacer-y * 3) !important; padding-bottom: (@spacer-y * 3) !important; }
+
+        .p-a-sm { padding:        ($spacer * 0.5) !important; }
+        .p-t-sm { padding-top:    ($spacer-y * 0.5) !important; }
+        .p-r-sm { padding-right:  ($spacer-y * 0.5) !important; }
+        .p-b-sm { padding-bottom: ($spacer-y * 0.5) !important; }
+        .p-l-sm { padding-left:   ($spacer-y * 0.5) !important; }
+        .p-x-sm { padding-right:  ($spacer-x * 0.5) !important; padding-left:   ($spacer-x * 0.5) !important; }
+        .p-y-sm { padding-top:    ($spacer-y * 0.5) !important; padding-bottom: ($spacer-y * 0.5) !important; }
+
+        .p-a-xs { padding:        ($spacer * 0.25) !important; }
+        .p-t-xs { padding-top:    ($spacer-y * 0.25) !important; }
+        .p-r-xs { padding-right:  ($spacer-y * 0.25) !important; }
+        .p-b-xs { padding-bottom: ($spacer-y * 0.25) !important; }
+        .p-l-xs { padding-left:   ($spacer-y * 0.25) !important; }
+        .p-x-xs { padding-right:  ($spacer-x * 0.25) !important; padding-left:   ($spacer-x * 0.25) !important; }
+        .p-y-xs { padding-top:    ($spacer-y * 0.25) !important; padding-bottom: ($spacer-y * 0.25) !important; }
+
+        </pre>
+      </div>
+      <div id="scripts">
+        <h2 class="m-t-lg m-b">Scripts</h2>
+        <h5>Core modules</h5>
+        <ul>
+          <li>
+            <h6>ui-jp</h6>
+            <p>Dynamic jQuery plugin call on dom 
+              <br>
+              <code>&lt;div ui-jp="stick_in_parent" ui-options="options">&lt;/div></code>
+              <br>
+              the ui-jp plugin will call the "stick_in_parent" function with the options, same as
+              <code>$.stick_in_parent(options)</code>
+              <br>
+              you can config the plugins in the "html/scripts/config.lazyload.js".
+            </p>
+          </li>
+
+          <li>
+            <h6>ui-include</h6>
+            <p>
+              Include the html partials into the page
+              <br>
+              <code>&lt;div ui-include="'../views/blocks/navbar.brand.html'">&lt;/div></code>
+              <br>
+              the ui-include will be replaced with the real partial. <br>
+              if you do not want to include the partials, you can just copy the real blocks and replace it. 
+            </p>
+          </li>
+        </ul>
+        <h5>Ajax</h5>
+        <p>This template uses the Pjax for ajax load the page. you can disable it by remove the relative codes(remove the html/scripts/ajax.js)</p>
+      </div>
+      <div id="elements">
+        <h2 class="m-t-lg m-b">Elements</h2>
+        <p>Bootstrap 4 components</p>
+        <ul class="nav h6 l-h-2x">
+          <li>
+            <a href="ui.arrow.html" ><span>Arrow</span></a>
+          </li>
+          <li>
+            <a href="ui.box.html" ><span>Box</span></a>
+          </li>
+          <li>
+            <a href="ui.button.html" ><span>Button</span></a>
+          </li>
+          <li>
+            <a href="ui.color.html" ><span>Color</span></a>
+          </li>
+          <li>
+            <a href="ui.dropdown.html" ><span>Dropdown</span></a>
+          </li>
+          <li>
+            <a href="ui.grid.html" ><span>Grid</span></a>
+          </li>
+          <li>
+            <a href="ui.icon.html" ><span>Icon</span></a>
+          </li>
+          <li>
+            <a href="ui.label.html" ><span>Label</span></a>
+          </li>
+          <li>
+            <a href="ui.list.html" ><span>List Group</span></a>
+          </li>
+          <li>
+            <a href="ui.modal.html" ><span>Modal</span></a>
+          </li>
+          <li>
+            <a href="ui.nav.html" ><span>Nav</span></a>
+          </li>
+          <li>
+            <a href="ui.progress.html" ><span>Progress</span></a>
+          </li>
+          <li>
+            <a href="ui.social.html" ><span>Social</span></a>
+          </li>
+          <li>
+            <a href="ui.streamline.html" ><span>Streamline</span></a>
+          </li>
+          <li>
+            <a href="ui.timeline.html" ><span>Timeline</span></a>
+          </li>
+          <li>
+            <a href="ui.widget.html" ><span>Widget</span></a>
+          </li>
+        </ul>
+      </div>
+      <div id="browser">
+        <h2 class="m-t-lg m-b">Browser</h2>
+        <p>For material icons on ie9, please check <a href="http://google.github.io/material-design-icons/#icon-font-for-the-web" class="text-primary">Material Icons</a></p>
+        <p><em>"For browsers that do not support ligatures, fall back to specifying the icons using numeric character references."</em></p>
+        <p>But numeric character does not pass the http://validator.w3.org/ .</p>
+      </div>
+      <div id="libs">
+        <h2 class="m-t-lg m-b">Libs</h2>
+        <ul class="nav h6 l-h-2x">
+          <li>
+            <a href="https://github.com/defunkt/jquery-pjax" ><span>Pjax</span></a>
+          </li>
+          <li>
+            <a href="https://github.com/HubSpot/pace" ><span>Pace</span></a>
+          </li>
+          <li>
+            <a href="https://github.com/pklauzinski/jscroll" ><span>jScroll</span></a>
+          </li>
+          <li>
+            <a href="https://github.com/markdalgleish/stellar.js" ><span>Stellar</span></a>
+          </li>
+          <li>
+            <a href="https://github.com/johndyer/mediaelement" ><span>Mediaelement</span></a>
+          </li>
+          <li>
+            <a href="https://github.com/OwlCarousel2/OwlCarousel2" ><span>OwlCarousel2</span></a>
+          </li>
+          <li>
+            <a href="https://github.com/leafo/sticky-kit" ><span>Sticky-kit</span></a>
+          </li>
+        </ul>
+      </div>
+      <div class="p-y-lg text-muted">
+        <h2 class="text-muted">Thanks!</h2>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ############ LAYOUT END-->
+  </div>
+
+<!-- build:js scripts/app.min.js -->
+<!-- jQuery -->
+  <script src="libs/jquery/dist/jquery.js"></script>
+<!-- Bootstrap -->
+  <script src="libs/tether/dist/js/tether.min.js"></script>
+  <script src="libs/bootstrap/dist/js/bootstrap.js"></script>
+<!-- core -->
+  <script src="libs/jQuery-Storage-API/jquery.storageapi.min.js"></script>
+  <script src="libs/jquery.stellar/jquery.stellar.min.js"></script>
+  <script src="libs/owl.carousel/dist/owl.carousel.min.js"></script>
+  <script src="libs/jscroll/jquery.jscroll.min.js"></script>
+  <script src="libs/PACE/pace.min.js"></script>
+  <script src="libs/jquery-pjax/jquery.pjax.js"></script>
+
+  <script src="libs/mediaelement/build/mediaelement-and-player.min.js"></script>
+  <script src="libs/mediaelement/build/mep.js"></script>
+  <script src="scripts/player.js"></script>
+
+  <script src="scripts/config.lazyload.js"></script>
+  <script src="scripts/ui-load.js"></script>
+  <script src="scripts/ui-jp.js"></script>
+  <script src="scripts/ui-include.js"></script>
+  <script src="scripts/ui-device.js"></script>
+  <script src="scripts/ui-form.js"></script>
+  <script src="scripts/ui-nav.js"></script>
+  <script src="scripts/ui-screenfull.js"></script>
+  <script src="scripts/ui-scroll-to.js"></script>
+  <script src="scripts/ui-toggle-class.js"></script>
+  <script src="scripts/ui-taburl.js"></script>
+  <script src="scripts/app.js"></script>
+  <script src="scripts/site.js"></script>
+  <script src="scripts/ajax.js"></script>
+<!-- endbuild -->
+</body>
+</html>

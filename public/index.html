@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>soundbit</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimal-ui" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- for ios 7 style, multi-resolution icon of 152x152 -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-barstyle" content="black-translucent">
+  <link rel="apple-touch-icon" href="images/icon.png">
+  <meta name="apple-mobile-web-app-title" content="Flatkit">
+  <!-- for Chrome on Android, multi-resolution icon of 196x196 -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="shortcut icon" sizes="196x196" href="images/icon.png">
+
+  <!-- style -->
+  <link rel="stylesheet" href="css/animate.css/animate.min.css" type="text/css" />
+  <link rel="stylesheet" href="css/glyphicons/glyphicons.css" type="text/css" />
+  <link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css" type="text/css" />
+  <link rel="stylesheet" href="css/material-design-icons/material-design-icons.css" type="text/css" />
+  <link rel="stylesheet" href="css/bootstrap/dist/css/bootstrap.min.css" type="text/css" />
+
+  <!-- build:css css/styles/app.min.css -->
+  <link rel="stylesheet" href="css/styles/app.css" type="text/css" />
+  <link rel="stylesheet" href="css/styles/style.css" type="text/css" />
+  <link rel="stylesheet" href="css/styles/font.css" type="text/css" />
+
+  <link rel="stylesheet" href="libs/owl.carousel/dist/assets/owl.carousel.min.css" type="text/css" />
+  <link rel="stylesheet" href="libs/owl.carousel/dist/assets/owl.theme.css" type="text/css" />
+  <link rel="stylesheet" href="libs/mediaelement/build/mediaelementplayer.min.css" type="text/css" />
+  <link rel="stylesheet" href="libs/mediaelement/build/mep.css" type="text/css" />
+
+  <!-- endbuild -->
+</head>
+<body style="background-color:#000000;">
+  <div class="app dk" id="app">
+
+<!-- ############ LAYOUT START-->
+
+  <!-- content -->
+  <div id="content" class="app-content" role="main">
+    <div class="app-header navbar-md black box-shadow-z1" style="background-color:#000000;">
+        <div class="navbar" data-pjax>
+              <a data-toggle="collapse" data-target="#navbar" class="navbar-item pull-right hidden-md-up m-r-0 m-l">
+                <i class="material-icons">menu</i>
+              </a>
+              <!-- brand -->
+              <a href="/" class="navbar-brand md">
+              	<img src="images/s_logo_small.png" style="width:15px; height:auto;" alt=".">
+              	<span class="hidden-folded inline" style="color:white;vertical-align:2px">soundbit</span>
+              </a>
+              <!-- / brand -->
+
+              <!-- nabar right -->
+              <ul class="nav navbar-nav pull-right">
+                <li class="nav-item">
+                  <a href="/signup" class="nav-link">
+                    Sign Up
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="/signin" class="nav-link">
+                    <span class="btn btn-sm rounded primary _600" style="color:white;">
+                      Sign In
+                    </span>
+                  </a>
+                </li>
+              </ul>
+              <!-- / navbar right -->
+
+              <!-- navbar collapse -->
+              <!-- / navbar collapse -->
+        </div>
+    </div>
+    <div class="app-body">
+
+<!-- ############ PAGE START-->
+
+
+<div class="owl-carousel black owl-theme owl-dots-hidden" style="background-color:#000000;" data-ui-jp="owlCarousel" data-ui-options="{
+             items: 1
+            ,loop: true
+            ,autoplay: false
+            ,nav: false
+            ,dots: false
+          }">
+	<div class="row-col" style="background-image:url('images/s_logo_small.png');background-repeat: no-repeat;background-position: center;">
+		<div class="col-lg-2"></div>
+		<div class="col-lg-8 text-center">
+			<div class="p-a-lg">
+				<h2 class="display-4 m-y-lg">Enjoy the world's music.</h2>
+        <br><br><br><br><br><br><br><br><br><br><br><br>
+				<a href="/signup" class="btn circle btn-outline b-primary m-b-lg p-x-md">Get Started</a>
+			</div>
+		</div>
+		<div class="col-lg-2"></div>
+	</div>
+	<div class="row-col">
+		<div class="col-lg-2"></div>
+		<div class="col-lg-8 text-center">
+			<div class="p-a-lg">
+				<h2 class="display-4 m-y-lg"></h2>
+				<h6 class="text-muted m-b-lg"></h6>
+			</div>
+		</div>
+		<div class="col-lg-2"></div>
+	</div>
+	<div class="row-col">
+		<div class="col-lg-2"></div>
+		<div class="col-lg-8 text-center">
+			<div class="p-a-lg">
+				<h2 class="display-4 m-y-lg"></h2>
+				<h6 class="text-muted m-b-lg"></h6>
+			</div>
+		</div>
+		<div class="col-lg-2"></div>
+	</div>
+</div>
+
+<div class="owl-carousel" style="background-color:#000000;" data-ui-jp="owlCarousel" data-ui-options="{
+            items: 1
+           ,loop: true,
+           slideTransition: 'linear',
+           autoplay: true,
+           autoplaySpeed: 15000,
+           autoplayTimeout: 0,
+           dots: false
+          }">
+	<div class="row-col">
+    <div class="col-sm-4">
+    		<div class="black cover cover-gd" style="background-image: url('images/album1.jpg');">
+    			<div class="p-a-lg text-center">
+    				<h3 class="display-3 m-y-lg" style="opacity:.00;">Music</h3>
+    				<p class="text-muted text-md m-b-lg" style="opacity:.00;">Get ready for high sound quality.</p>
+    				<a href="player.html" class="btn circle white m-b-lg p-x-md" style="opacity:.00;">Try Free</a>
+    			</div>
+    		</div>
+    	</div>
+      <div class="col-sm-4">
+          <div class="black cover cover-gd" style="background-image: url('images/album2.jpg');">
+            <div class="p-a-lg text-center">
+              <h3 class="display-3 m-y-lg" style="opacity:.00;">Music</h3>
+              <p class="text-muted text-md m-b-lg" style="opacity:.00;">Get ready for high sound quality.</p>
+              <a href="player.html" class="btn circle white m-b-lg p-x-md" style="opacity:.00;">Try Free</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="black cover cover-gd" style="background-image: url('images/album3.jpg');">
+              <div class="p-a-lg text-center">
+                <h3 class="display-3 m-y-lg" style="opacity:.00;">Music</h3>
+                <p class="text-muted text-md m-b-lg" style="opacity:.00;">Get ready for high sound quality.</p>
+                <a href="player.html" class="btn circle white m-b-lg p-x-md" style="opacity:.00;">Try Free</a>
+              </div>
+            </div>
+          </div>
+	</div>
+	<div class="row-col">
+    <div class="col-sm-4">
+    		<div class="black cover cover-gd" style="background-image: url('images/album4.jpg');">
+    			<div class="p-a-lg text-center">
+    				<h3 class="display-3 m-y-lg" style="opacity:.00;">Music</h3>
+    				<p class="text-muted text-md m-b-lg" style="opacity:.00;">Get ready for high sound quality.</p>
+    				<a href="player.html" class="btn circle white m-b-lg p-x-md" style="opacity:.00;">Try Free</a>
+    			</div>
+    		</div>
+    	</div>
+      <div class="col-sm-4">
+          <div class="black cover cover-gd" style="background-image: url('images/album5.jpg');">
+            <div class="p-a-lg text-center">
+              <h3 class="display-3 m-y-lg" style="opacity:.00;">Music</h3>
+              <p class="text-muted text-md m-b-lg" style="opacity:.00;">Get ready for high sound quality.</p>
+              <a href="player.html" class="btn circle white m-b-lg p-x-md" style="opacity:.00;">Try Free</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="black cover cover-gd" style="background-image: url('images/album6.jpg');">
+              <div class="p-a-lg text-center">
+                <h3 class="display-3 m-y-lg" style="opacity:.00;">Music</h3>
+                <p class="text-muted text-md m-b-lg" style="opacity:.00;">Get ready for high sound quality.</p>
+                <a href="player.html" class="btn circle white m-b-lg p-x-md" style="opacity:.00;">Try Free</a>
+              </div>
+            </div>
+          </div>
+	</div>
+	<div class="row-col">
+    <div class="col-sm-4">
+    		<div class="black cover cover-gd" style="background-image: url('images/album7.jpg');">
+    			<div class="p-a-lg text-center">
+    				<h3 class="display-3 m-y-lg" style="opacity:.00;">Music</h3>
+    				<p class="text-muted text-md m-b-lg" style="opacity:.00;">Get ready for high sound quality.</p>
+    				<a href="player.html" class="btn circle white m-b-lg p-x-md" style="opacity:.00;">Try Free</a>
+    			</div>
+    		</div>
+    	</div>
+      <div class="col-sm-4">
+          <div class="black cover cover-gd" style="background-image: url('images/album8.jpg');">
+            <div class="p-a-lg text-center">
+              <h3 class="display-3 m-y-lg" style="opacity:.00;">Music</h3>
+              <p class="text-muted text-md m-b-lg" style="opacity:.00;">Get ready for high sound quality.</p>
+              <a href="player.html" class="btn circle white m-b-lg p-x-md" style="opacity:.00;">Try Free</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="black cover cover-gd" style="background-image: url('images/album9.jpg');">
+              <div class="p-a-lg text-center">
+                <h3 class="display-3 m-y-lg" style="opacity:.00;">Music</h3>
+                <p class="text-muted text-md m-b-lg" style="opacity:.00;">Get ready for high sound quality.</p>
+                <a href="player.html" class="btn circle white m-b-lg p-x-md" style="opacity:.00;">Try Free</a>
+              </div>
+            </div>
+          </div>
+	</div>
+</div>
+
+<div class="black cover" data-stellar-background-ratio="0.5" style="background-image:url('images/cloudyalt.jpg');">
+  <div class="row-col">
+	<div class="col-md-3"></div>
+	<div class="col-md-6">
+		<div class="p-a-lg text-center">
+			<h3 class="display-4 m-y-lg">Stream and download all the songs you love - for free.</h3>
+			<p class="text-muted text-md m-b-lg">Soundbit dynamically sources your music from all corners of the internet, allowing you to instantly access and store any song in the world.</p>
+		</div>
+	</div>
+	<div class="col-md-3"></div>
+</div>
+</div>
+
+<div class="row-col dark-white" style="background-color:black;"> <!--style="background-image:url('images/firelights.jpg');background-repeat: no-repeat;background-position: center;background-size: 100% auto;"-->
+	<div class="col-md-3"></div>
+	<div class="col-md-6">
+		<div class="p-a-lg text-center">
+			<h3 class="display-4 m-y-lg" style="color:white;">We're not big fans of ads - or wasting money.</h3>
+			<p class="text-md m-b-lg" style="opacity: .5;color:white;">That's why we decided to build a streaming platform optimized purely for the enjoyment of music. No advertisements, no monthly fees, just you and your music.</p>
+		</div>
+	</div>
+	<div class="col-md-3"></div>
+</div>
+
+
+<div id="wvfrm" style="width:100%;height:100px;background-color:#000000"></div>
+
+
+
+
+
+
+
+
+
+
+<div class="black cover" data-stellar-background-ratio="0.5" style="background-image: url('images/cloudyfinal.jpg');">
+	<div class="row-col">
+    <div class="col-md-4">
+			<div class="p-a-lg text-center">
+				<h4 class="m-y-lg">Over 30 million Songs</h4>
+				<p class="text-muted text-md m-b-lg">By establishing free access to the world's music, Soundbit acts as the ideal platform for music enjoyment and consumption.</p>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="p-a-lg text-center">
+				<h4 class="m-y-lg">Maximum Quality Downloads</h4>
+				<p class="text-muted text-md m-b-lg">We serve downloads in the M4A file format at 256kbps, giving you the highest-quality version of your song available on the internet.</p>
+			</div>
+		</div>
+    <div class="col-md-4">
+			<div class="p-a-lg text-center">
+				<h4 class="m-y-lg">Dynamic Source Generation</h4>
+				<p class="text-muted text-md m-b-lg">Soundbit doesn't store a single byte of music data, and remains completely legal by only serving audio content from reputable sources.</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- ############ PAGE END-->
+
+    </div>
+    <div class="white dk pos-rlt" style="background-color:#000000">
+      <div class="p-a-md">
+        <div class="footer p-y-md text-primary-hover">
+        	<div class="row">
+        		<div class="col-md-3">
+        			<div class="clearfix m-b-lg">
+        				<!-- brand -->
+                <a href="/" class="navbar-brand md">
+                	<img src="images/s_logo_small.png" style="width:15px; height:auto;" alt=".">
+                	<span class="hidden-folded inline" style="color:white;vertical-align:2px">soundbit</span>
+                </a>
+        				<!-- / brand -->
+        			</div>
+        		</div>
+        	</div>
+        	<div class="b b-b m-b m-t-lg"></div>
+        	<div class="row">
+        		<div class="col-sm-8">
+        			<a class="text-muted text-sm"></a>
+                </div>
+                <div class="col-sm-4">
+                	<div class="text-sm-right text-xs-left">
+                		<small class="text-muted">&copy; Copyright 2017. All rights reserved.</small>
+                	</div>
+                </div>
+        	</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- / -->
+
+<!-- ############ LAYOUT END-->
+  </div>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-102441513-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+<!-- build:js scripts/app.min.js -->
+  <script src="libs/waveform/dist/waveform.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/wavesurfer.js/1.3.7/wavesurfer.min.js"></script>
+<!-- jQuery -->
+  <script src="libs/jquery/dist/jquery.js"></script>
+<!-- Bootstrap -->
+  <script src="libs/tether/dist/js/tether.min.js"></script>
+  <script src="libs/bootstrap/dist/js/bootstrap.js"></script>
+<!-- core -->
+  <script src="libs/jQuery-Storage-API/jquery.storageapi.min.js"></script>
+  <script src="libs/jquery.stellar/jquery.stellar.min.js"></script>
+  <script src="libs/owl.carousel/dist/owl.carousel.js"></script>
+  <script src="libs/jscroll/jquery.jscroll.min.js"></script>
+  <script src="libs/PACE/pace.min.js"></script>
+  <script src="libs/jquery-pjax/jquery.pjax.js"></script>
+
+  <script src="libs/mediaelement/build/mediaelement-and-player.min.js"></script>
+  <script src="libs/mediaelement/build/mep.js"></script>
+  <script src="scripts/player.js"></script>
+
+  <script src="scripts/config.lazyload.js"></script>
+  <script src="scripts/ui-load.js"></script>
+  <script src="scripts/ui-jp.js"></script>
+  <script src="scripts/ui-include.js"></script>
+  <script src="scripts/ui-device.js"></script>
+  <script src="scripts/ui-form.js"></script>
+  <script src="scripts/ui-nav.js"></script>
+  <script src="scripts/ui-screenfull.js"></script>
+  <script src="scripts/ui-scroll-to.js"></script>
+  <script src="scripts/ui-toggle-class.js"></script>
+  <script src="scripts/ui-taburl.js"></script>
+  <script src="scripts/app.js"></script>
+  <script src="scripts/site.js"></script>
+  <script src="scripts/ajax.js"></script>
+<!-- endbuild -->
+<script>
+/*var waveform = new Waveform({
+  container: document.getElementById("wvfrm"),
+  data: [1, 0.2, 0.5]
+});*/
+var wavesurfer = WaveSurfer.create({
+    container: '#wvfrm',
+    waveColor: 'grey',
+    progressColor: '#ef1960',
+    cursorWidth: 0,
+    audioRate: 1
+});
+
+wavesurfer.load('http://ia902606.us.archive.org/35/items/shortpoetry_047_librivox/song_cjrg_teasdale_64kb.mp3');
+
+wavesurfer.on('ready', function () {
+    wavesurfer.toggleMute();
+    wavesurfer.play();
+});
+
+wavesurfer.on('finish', function () {
+    wavesurfer.seekTo(0);
+    wavesurfer.play();
+});
+</script>
+</body>
+</html>

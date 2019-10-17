@@ -1,0 +1,8 @@
+{
+  "name": "soundbit",
+  "description": "Enjoy the world's music",
+  "repository": "https://github.com/connorgoggins/soundbit",
+  "logo": "https://cdn.rawgit.com/heroku/node-js-getting-started/master/public/node.svg",
+  "keywords": ["node", "express", "heroku"],
+  "image": "heroku/nodejs"
+}

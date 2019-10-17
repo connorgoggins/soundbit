@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>soundbit</title>
+  <meta name="description" content="Music, Musician, Bootstrap" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimal-ui" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- for ios 7 style, multi-resolution icon of 152x152 -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-barstyle" content="black-translucent">
+  <link rel="apple-touch-icon" href="images/icon.png">
+  <meta name="apple-mobile-web-app-title" content="Flatkit">
+  <!-- for Chrome on Android, multi-resolution icon of 196x196 -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="shortcut icon" sizes="196x196" href="images/icon.png">
+
+  <!-- style -->
+  <link rel="stylesheet" href="css/animate.css/animate.min.css" type="text/css" />
+  <link rel="stylesheet" href="css/glyphicons/glyphicons.css" type="text/css" />
+  <link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css" type="text/css" />
+  <link rel="stylesheet" href="css/material-design-icons/material-design-icons.css" type="text/css" />
+  <link rel="stylesheet" href="css/bootstrap/dist/css/bootstrap.min.css" type="text/css" />
+
+  <!-- build:css css/styles/app.min.css -->
+  <link rel="stylesheet" href="css/styles/app.css" type="text/css" />
+  <link rel="stylesheet" href="css/styles/style.css" type="text/css" />
+  <link rel="stylesheet" href="css/styles/font.css" type="text/css" />
+
+  <link rel="stylesheet" href="libs/owl.carousel/dist/assets/owl.carousel.min.css" type="text/css" />
+  <link rel="stylesheet" href="libs/owl.carousel/dist/assets/owl.theme.css" type="text/css" />
+  <link rel="stylesheet" href="libs/mediaelement/build/mediaelementplayer.min.css" type="text/css" />
+  <link rel="stylesheet" href="libs/mediaelement/build/mep.css" type="text/css" />
+
+  <!-- endbuild -->
+</head>
+<body>
+  <div class="app dk" id="app" style="background-color:#000000">
+
+<!-- ############ LAYOUT START-->
+
+  <div class="padding">
+    <div class="navbar">
+      <div class="pull-center">
+        <!-- brand -->
+        <a href="/" class="navbar-brand md">
+        	<img src="images/s_logo_small.png" style="width:15px; height:auto;" alt=".">
+        	<span class="hidden-folded inline" style="color:white;vertical-align:2px">soundbit</span>
+        </a>
+        <!-- / brand -->
+      </div>
+    </div>
+  </div>
+    <div class="center-block w-xxl w-auto-xs p-y-md text-center">
+      <h6 id="signupfail1" style="background-color: #ef1960;" hidden>Error: Email address already in use.</h6>
+      <h6 id="signupfail2" style="background-color: #ef1960;" hidden>Error: One or more fields left empty.</h6>
+      <div class="p-a-md">
+        <div name="form">
+          <div class="form-group">
+            <input id="firstName" type="text" name="firstName" class="form-control" placeholder="First Name" required>
+          </div>
+          <div class="form-group">
+            <input id="lastName" type="text" name="lastName" class="form-control" placeholder="Last Name" required>
+          </div>
+          <div class="form-group">
+            <input id="email" type="email" name="email" class="form-control" placeholder="Email" required>
+          </div>
+          <div class="form-group">
+            <input id="password" type="password" name="password" class="form-control" placeholder="Password" required>
+          </div>
+          <div class="m-b-md text-sm">
+            <span class="text-muted">By clicking Sign Up, I agree to the</span>
+            <a href="#">Terms of Service</a>
+            <span class="text-muted">and</span>
+            <a href="#">Privacy Policy.</a>
+          </div>
+          <button type="submit" class="btn btn-lg black p-x-lg" onclick="checkIfSignUpFailed();">Sign Up</button>
+        </div>
+        <div class="p-y-lg text-center">
+          <div>Already have an account? <a href="/signin" class="text-primary _600">Sign In</a></div>
+        </div>
+      </div>
+    </div>
+
+<!-- ############ LAYOUT END-->
+  </div>
+
+<!-- build:js scripts/app.min.js -->
+<!-- jQuery -->
+  <script src="libs/jquery/dist/jquery.js"></script>
+<!-- Bootstrap -->
+  <script src="libs/tether/dist/js/tether.min.js"></script>
+  <script src="libs/bootstrap/dist/js/bootstrap.js"></script>
+<!-- core -->
+  <script src="libs/jQuery-Storage-API/jquery.storageapi.min.js"></script>
+  <script src="libs/jquery.stellar/jquery.stellar.min.js"></script>
+  <script src="libs/owl.carousel/dist/owl.carousel.min.js"></script>
+  <script src="libs/jscroll/jquery.jscroll.min.js"></script>
+  <script src="libs/PACE/pace.min.js"></script>
+  <script src="libs/jquery-pjax/jquery.pjax.js"></script>
+
+  <script src="libs/mediaelement/build/mediaelement-and-player.min.js"></script>
+  <script src="libs/mediaelement/build/mep.js"></script>
+  <script src="scripts/player.js"></script>
+
+  <script src="scripts/config.lazyload.js"></script>
+  <script src="scripts/ui-load.js"></script>
+  <script src="scripts/ui-jp.js"></script>
+  <script src="scripts/ui-include.js"></script>
+  <script src="scripts/ui-device.js"></script>
+  <script src="scripts/ui-form.js"></script>
+  <script src="scripts/ui-nav.js"></script>
+  <script src="scripts/ui-screenfull.js"></script>
+  <script src="scripts/ui-scroll-to.js"></script>
+  <script src="scripts/ui-toggle-class.js"></script>
+  <script src="scripts/ui-taburl.js"></script>
+  <script src="scripts/app.js"></script>
+  <script src="scripts/site.js"></script>
+  <script src="scripts/ajax.js"></script>
+
+  <script>
+    function checkIfSignUpFailed() {
+      if (document.getElementById("firstName").value == "" || document.getElementById("lastName").value == "" || document.getElementById("email").value == "" || document.getElementById("password").value == "") {
+        document.getElementById("signupfail2").hidden = false;
+        document.getElementById("signupfail1").hidden = true;
+      }
+      else {
+        var xmlReq = new XMLHttpRequest();
+        xmlReq.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+            var resp = JSON.parse(this.responseText);
+            if (resp.body == "ERROR: Email already in use") {
+              document.getElementById("signupfail1").hidden = false;
+              document.getElementById("signupfail2").hidden = true;
+            }
+            else {
+              // Authenticate Spotify API credentials
+              // window.location.assign("https://accounts.spotify.com/authorize?client_id=62de9dc50722467795cfd0d4056e42aa&response_type=code&redirect_uri=callback")
+              window.location.href = "discover";
+            }
+          }
+        };
+
+        xmlReq.open("GET", "addUser?firstName= " + document.getElementById("firstName").value + "&lastName=" + document.getElementById("lastName").value + "&email=" + document.getElementById("email").value + "&password=" + document.getElementById("password").value);
+        xmlReq.send();
+      }
+    }
+
+    $("#email").on('keyup', function (e) {
+      if (e.keyCode == 13) {
+          checkIfSignUpFailed();
+      }
+    });
+
+    $("#password").on('keyup', function (e) {
+      if (e.keyCode == 13) {
+          checkIfSignUpFailed();
+      }
+    });
+
+    $("#firstName").on('keyup', function (e) {
+      if (e.keyCode == 13) {
+          checkIfSignUpFailed();
+      }
+    });
+
+    $("#lastName").on('keyup', function (e) {
+      if (e.keyCode == 13) {
+          checkIfSignUpFailed();
+      }
+    });
+
+  </script>
+<!-- endbuild -->
+</body>
+</html>

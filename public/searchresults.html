@@ -1,0 +1,1142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>soundbit</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimal-ui" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- for ios 7 style, multi-resolution icon of 152x152 -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-barstyle" content="black-translucent">
+  <link rel="apple-touch-icon" href="images/icon.png">
+  <meta name="apple-mobile-web-app-title" content="Flatkit">
+  <!-- for Chrome on Android, multi-resolution icon of 196x196 -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="shortcut icon" sizes="196x196" href="images/icon.png">
+
+  <!-- style -->
+  <link rel="stylesheet" href="css/animate.css/animate.min.css" type="text/css" />
+  <link rel="stylesheet" href="css/glyphicons/glyphicons.css" type="text/css" />
+  <link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css" type="text/css" />
+  <link rel="stylesheet" href="css/material-design-icons/material-design-icons.css" type="text/css" />
+  <link rel="stylesheet" href="css/bootstrap/dist/css/bootstrap.min.css" type="text/css" />
+
+  <!-- build:css css/styles/app.min.css -->
+  <link rel="stylesheet" href="css/styles/app.css" type="text/css" />
+  <link rel="stylesheet" href="css/styles/style.css" type="text/css" />
+  <link rel="stylesheet" href="css/styles/font.css" type="text/css" />
+
+  <link rel="stylesheet" href="libs/owl.carousel/dist/assets/owl.carousel.min.css" type="text/css" />
+  <link rel="stylesheet" href="libs/owl.carousel/dist/assets/owl.theme.css" type="text/css" />
+  <link rel="stylesheet" href="libs/mediaelement/build/mediaelementplayer.min.css" type="text/css" />
+  <link rel="stylesheet" href="libs/mediaelement/build/mep.css" type="text/css" />
+  <!-- endbuild -->
+</head>
+<body>
+
+
+  <div class="app dk" id="app">
+
+<!-- ############ LAYOUT START-->
+
+  <!-- aside -->
+  <div id="aside" class="app-aside modal fade nav-dropdown">
+    <!-- fluid app aside -->
+    <div class="left navside black" data-layout="column">
+      <div class="navbar no-radius">
+        <!-- brand -->
+        <a href="/discover" class="navbar-brand md" onclick="fillDiscoverArtistsContent(14); fillDiscoverSongsContent(23);">
+        	<img src="images/s_logo_small.png" style="width:15px; height:auto;" alt=".">
+        	<span class="hidden-folded inline" style="color:white;vertical-align:2px">soundbit</span>
+        </a>
+        <!-- / brand -->
+      </div>
+      <div data-flex class="hide-scroll">
+          <nav class="scroll nav-stacked nav-active-primary">
+
+            <ul class="nav" data-ui-nav>
+              <li onclick="fillDiscoverArtistsContent(14); fillDiscoverSongsContent(23);">
+                <a href="/discover">
+                  <span class="nav-icon">
+                    <i class="material-icons">
+                      layers
+                    </i>
+                  </span>
+                  <span class="nav-text">Discover</span>
+                </a>
+              </li>
+              <li onclick="fillChartContent(100);">
+                <a href="/charts">
+                  <span class="nav-icon">
+                    <i class="material-icons">
+                      trending_up
+                    </i>
+                  </span>
+                  <span class="nav-text">Charts</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+      </div>
+
+    </div>
+  </div>
+  <!-- / -->
+
+  <!-- content -->
+  <div id="content" class="app-content white bg box-shadow-z2" role="main">
+    <div class="app-header hidden-lg-up white lt box-shadow-z1">
+        <div class="navbar">
+        <!-- brand -->
+        <a href="index.html" class="navbar-brand md">
+        	<img src="images/s_logo_white.png" style="width:15px; height:auto;" alt="." class="hide">
+        	<span class="hidden-folded inline" style="color:white;">soundbit</span>
+        </a>
+        <!-- / brand -->
+        <!-- nabar right -->
+        <ul class="nav navbar-nav pull-right">
+          <li class="nav-item">
+            <!-- Open side - Naviation on mobile -->
+            <a data-toggle="modal" data-target="#aside" class="nav-link">
+              <i class="material-icons">menu</i>
+            </a>
+            <!-- / -->
+          </li>
+        </ul>
+        <!-- / navbar right -->
+      </div>
+    </div>
+    <div id="temp1" class="app-footer app-player grey bg" hidden>
+      <div id="temp2" class="playlist" style="width:100%"></div>
+    </div>
+    <div class="app-body" id="view" style="background-color:black;">
+
+<!-- ############ PAGE START-->
+
+<div class="page-content">
+  <div class="row-col">
+    <div class="col-lg-9 b-r no-border-md">
+      <div class="padding">
+        <div style="height:63px;margin-bottom:-15px;"}}>
+          <div className="col-md-7">
+            <section class="webdesigntuts-workshop">
+            <form id="form1" style="margin-top:-12px;" action="search">
+              <div className="col-md-7" style="width:100%;">
+                  <div className="input-group input-group-lg">
+                    <input type="text"
+                      id="searchfield"
+                      name="keyword"
+                      onKeyPress=""
+                      onChange=""
+                      className="form-control"
+                      placeholder="Search"
+                      value=""
+                      style="
+                        background-image:url('images/searchicon.png');
+                        background-position:10px 5px;
+                        background-size:15px 15px;
+                        background-repeat:no-repeat;
+                        padding:12px 20px 12px 40px;
+                        border-radius:5px 5px 5px 5px;
+                        height:20px;
+                      "/>
+                  </div>
+              </div>
+            </form>
+          </section>
+            <div data-flex-no-shrink style="width:25%;float:right;margin-top:-2%">
+              <div class="nav-fold dropdown">
+                <a data-toggle="dropdown">
+                  <span class="clear hidden-folded p-x p-y-xs" style="float:right;">
+                    <span id="username" class="block _500 text-ellipsis"></span>
+                  </span>
+                    <span class="pull-left" style="float:right;">
+                      <img id="currentSongImage" src="images/a3.jpg" alt="..." class="w-32 img-circle">
+                    </span>
+                </a>
+                <div class="dropdown-menu w dropdown-menu-scale " style="float:right;margin-top:10%;margin-left:40%">
+                  <a class="dropdown-item" href="/signout">Sign Out</a>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <div class="page-title m-b">
+          <h1 class="inline m-a-0" id="titleContent">Search results for ""</h1>
+        </div>
+        <div id="topList" class="row item-list item-list-md item-list-li m-b">
+          <div class="col-xs-12" draggable="true" id="song1"><div class="item r" data-id="item-1" data-src=""><div class="item-media "><a id="song1-image"  class="item-media-content" style="background-image: url('images/b0.jpg');"></a>
+            <div class="item-overlay center"><button id="song1-play" onclick="changePlayerState(0);" class="btn-playpause">Play</button></div></div><div class="item-info"><div class="item-overlay bottom text-right">
+              <a href="#" class="btn-favorite"><i onclick="addToOnlineSongs(1);" class="fa fa-plus"></i></a><a href="#" class="btn-more" data-toggle="dropdown"><a id="1" onclick="addToDownloadedSongs(1);" class="fa fa-cloud-download"></a></a><div id="song1-videoId" link="" hidden></div><div class="dropdown-menu pull-right black lt"></div></div><div class="item-title text-ellipsis">
+                <a id="song1-title" ></a></div><div class="item-author text-sm text-ellipsis "><a id="song1-artist" onclick="execSearchSong(1);" class="text-muted"></a></div><div class="item-meta text-sm text-muted">
+                  </div></div></div></div>
+          <div class="col-xs-12" id="song2"><div class="item r" data-id="item-1" data-src=""><div class="item-media "><a id="song2-image"  class="item-media-content" style="background-image: url('images/b0.jpg');"></a>
+            <div class="item-overlay center"><button id="song2-play" onclick="changePlayerState(1);" class="btn-playpause">Play</button></div></div><div class="item-info"><div class="item-overlay bottom text-right">
+              <a href="#" class="btn-favorite"><i onclick="addToOnlineSongs(2);" class="fa fa-plus"></i></a><a href="#" class="btn-more" data-toggle="dropdown"><a id="2" onclick="addToDownloadedSongs(2);" class="fa fa-cloud-download"></a></a><div id="song2-videoId" link="" hidden></div><div class="dropdown-menu pull-right black lt"></div></div><div class="item-title text-ellipsis">
+                <a id="song2-title" ></a></div><div class="item-author text-sm text-ellipsis "><a id="song2-artist" onclick="execSearchSong(2);" class="text-muted"></a></div><div class="item-meta text-sm text-muted">
+                  </div></div></div></div>
+          <div class="col-xs-12" id="song3"><div class="item r" data-id="item-1" data-src=""><div class="item-media "><a id="song3-image"  class="item-media-content" style="background-image: url('images/b0.jpg');"></a>
+            <div class="item-overlay center"><button id="song3-play" onclick="changePlayerState(2);" class="btn-playpause">Play</button></div></div><div class="item-info"><div class="item-overlay bottom text-right">
+              <a href="#" class="btn-favorite"><i onclick="addToOnlineSongs(3);" class="fa fa-plus"></i></a><a href="#" class="btn-more" data-toggle="dropdown"><a id="3" onclick="addToDownloadedSongs(3);" class="fa fa-cloud-download"></a></a><div id="song3-videoId" link="" hidden></div><div class="dropdown-menu pull-right black lt"></div></div><div class="item-title text-ellipsis">
+                <a id="song3-title" ></a></div><div class="item-author text-sm text-ellipsis "><a id="song3-artist" onclick="execSearchSong(3);" class="text-muted"></a></div><div class="item-meta text-sm text-muted">
+                  </div></div></div></div>
+          <div class="col-xs-12" id="song4"><div class="item r" data-id="item-1" data-src=""><div class="item-media "><a id="song4-image"  class="item-media-content" style="background-image: url('images/b0.jpg');"></a>
+            <div class="item-overlay center"><button id="song4-play" onclick="changePlayerState(3);" class="btn-playpause">Play</button></div></div><div class="item-info"><div class="item-overlay bottom text-right">
+              <a href="#" class="btn-favorite"><i onclick="addToOnlineSongs(4);" class="fa fa-plus"></i></a><a href="#" class="btn-more" data-toggle="dropdown"><a id="4" onclick="addToDownloadedSongs(4);" class="fa fa-cloud-download"></a></a><div id="song4-videoId" link="" hidden></div><div class="dropdown-menu pull-right black lt"></div></div><div class="item-title text-ellipsis">
+                <a id="song4-title" ></a></div><div class="item-author text-sm text-ellipsis "><a id="song4-artist" onclick="execSearchSong(4);" class="text-muted"></a></div><div class="item-meta text-sm text-muted">
+                  </div></div></div></div>
+          <div class="col-xs-12" id="song5"><div class="item r" data-id="item-1" data-src=""><div class="item-media "><a id="song5-image"  class="item-media-content" style="background-image: url('images/b0.jpg');"></a>
+            <div class="item-overlay center"><button id="song5-play" onclick="changePlayerState(4);" class="btn-playpause">Play</button></div></div><div class="item-info"><div class="item-overlay bottom text-right">
+              <a href="#" class="btn-favorite"><i onclick="addToOnlineSongs(5);" class="fa fa-plus"></i></a><a href="#" class="btn-more" data-toggle="dropdown"><a id="5" onclick="addToDownloadedSongs(5);" class="fa fa-cloud-download"></a></a><div id="song5-videoId" link="" hidden></div><div class="dropdown-menu pull-right black lt"></div></div><div class="item-title text-ellipsis">
+                <a id="song5-title" ></a></div><div class="item-author text-sm text-ellipsis "><a id="song5-artist" onclick="execSearchSong(5);" class="text-muted"></a></div><div class="item-meta text-sm text-muted">
+                  </div></div></div></div>
+          <div class="col-xs-12" id="song6"><div class="item r" data-id="item-1" data-src=""><div class="item-media "><a id="song6-image"  class="item-media-content" style="background-image: url('images/b0.jpg');"></a>
+            <div class="item-overlay center"><button id="song6-play" onclick="changePlayerState(5);" class="btn-playpause">Play</button></div></div><div class="item-info"><div class="item-overlay bottom text-right">
+              <a href="#" class="btn-favorite"><i onclick="addToOnlineSongs(6);" class="fa fa-plus"></i></a><a href="#" class="btn-more" data-toggle="dropdown"><a id="6" onclick="addToDownloadedSongs(6);" class="fa fa-cloud-download"></a></a><div id="song6-videoId" link="" hidden></div><div class="dropdown-menu pull-right black lt"></div></div><div class="item-title text-ellipsis">
+                <a id="song6-title" ></a></div><div class="item-author text-sm text-ellipsis "><a id="song6-artist" onclick="execSearchSong(6);" class="text-muted"></a></div><div class="item-meta text-sm text-muted">
+                  </div></div></div></div>
+          <div class="col-xs-12" id="song7"><div class="item r" data-id="item-1" data-src=""><div class="item-media "><a id="song7-image"  class="item-media-content" style="background-image: url('images/b0.jpg');"></a>
+            <div class="item-overlay center"><button id="song7-play" onclick="changePlayerState(6);" class="btn-playpause">Play</button></div></div><div class="item-info"><div class="item-overlay bottom text-right">
+              <a href="#" class="btn-favorite"><i onclick="addToOnlineSongs(7);" class="fa fa-plus"></i></a><a href="#" class="btn-more" data-toggle="dropdown"><a id="7" onclick="addToDownloadedSongs(7);" class="fa fa-cloud-download"></a></a><div id="song7-videoId" link="" hidden></div><div class="dropdown-menu pull-right black lt"></div></div><div class="item-title text-ellipsis">
+                <a id="song7-title" ></a></div><div class="item-author text-sm text-ellipsis "><a id="song7-artist" onclick="execSearchSong(7);" class="text-muted"></a></div><div class="item-meta text-sm text-muted">
+                  </div></div></div></div>
+          <div class="col-xs-12" id="song8"><div class="item r" data-id="item-1" data-src=""><div class="item-media "><a id="song8-image"  class="item-media-content" style="background-image: url('images/b0.jpg');"></a>
+            <div class="item-overlay center"><button id="song8-play" onclick="changePlayerState(7);" class="btn-playpause">Play</button></div></div><div class="item-info"><div class="item-overlay bottom text-right">
+              <a href="#" class="btn-favorite"><i onclick="addToOnlineSongs(8);" class="fa fa-plus"></i></a><a href="#" class="btn-more" data-toggle="dropdown"><a id="8" onclick="addToDownloadedSongs(8);" class="fa fa-cloud-download"></a></a><div id="song8-videoId" link="" hidden></div><div class="dropdown-menu pull-right black lt"></div></div><div class="item-title text-ellipsis">
+                <a id="song8-title" ></a></div><div class="item-author text-sm text-ellipsis "><a id="song8-artist" onclick="execSearchSong(8);" class="text-muted"></a></div><div class="item-meta text-sm text-muted">
+                  </div></div></div></div>
+          <div class="col-xs-12" id="song9"><div class="item r" data-id="item-1" data-src=""><div class="item-media "><a id="song9-image"  class="item-media-content" style="background-image: url('images/b0.jpg');"></a>
+            <div class="item-overlay center"><button id="song9-play" onclick="changePlayerState(8);" class="btn-playpause">Play</button></div></div><div class="item-info"><div class="item-overlay bottom text-right">
+              <a href="#" class="btn-favorite"><i onclick="addToOnlineSongs(9);" class="fa fa-plus"></i></a><a href="#" class="btn-more" data-toggle="dropdown"><a id="9" onclick="addToDownloadedSongs(9);" class="fa fa-cloud-download"></a></a><div id="song9-videoId" link="" hidden></div><div class="dropdown-menu pull-right black lt"></div></div><div class="item-title text-ellipsis">
+                <a id="song9-title" ></a></div><div class="item-author text-sm text-ellipsis "><a id="song9-artist" onclick="execSearchSong(9);" class="text-muted"></a></div><div class="item-meta text-sm text-muted">
+                  </div></div></div></div>
+          <div class="col-xs-12" id="song10"><div class="item r" data-id="item-1" data-src=""><div class="item-media "><a id="song10-image"  class="item-media-content" style="background-image: url('images/b0.jpg');"></a>
+            <div class="item-overlay center"><button id="song10-play" onclick="changePlayerState(9);" class="btn-playpause">Play</button></div></div><div class="item-info"><div class="item-overlay bottom text-right">
+              <a href="#" class="btn-favorite"><i onclick="addToOnlineSongs(10);" class="fa fa-plus"></i></a><a href="#" class="btn-more" data-toggle="dropdown"><a id="10" onclick="addToDownloadedSongs(10);" class="fa fa-cloud-download"></a></a><div id="song10-videoId" link="" hidden></div><div class="dropdown-menu pull-right black lt"></div></div><div class="item-title text-ellipsis">
+                <a id="song10-title" ></a></div><div class="item-author text-sm text-ellipsis "><a id="song10-artist" onclick="execSearchSong(10);" class="text-muted"></a></div><div class="item-meta text-sm text-muted">
+                  </div></div></div></div>
+          <div class="col-xs-12" id="song11"><div class="item r" data-id="item-1" data-src=""><div class="item-media "><a id="song11-image"  class="item-media-content" style="background-image: url('images/b0.jpg');"></a>
+            <div class="item-overlay center"><button id="song11-play" onclick="changePlayerState(10);" class="btn-playpause">Play</button></div></div><div class="item-info"><div class="item-overlay bottom text-right">
+              <a href="#" class="btn-favorite"><i onclick="addToOnlineSongs(11);" class="fa fa-plus"></i></a><a href="#" class="btn-more" data-toggle="dropdown"><a id="11" onclick="addToDownloadedSongs(11);" class="fa fa-cloud-download"></a></a><div id="song11-videoId" link="" hidden></div><div class="dropdown-menu pull-right black lt"></div></div><div class="item-title text-ellipsis">
+                <a id="song11-title" ></a></div><div class="item-author text-sm text-ellipsis "><a id="song11-artist" onclick="execSearchSong(11);" class="text-muted"></a></div><div class="item-meta text-sm text-muted">
+                  </div></div></div></div>
+          <div class="col-xs-12" id="song12"><div class="item r" data-id="item-1" data-src=""><div class="item-media "><a id="song12-image"  class="item-media-content" style="background-image: url('images/b0.jpg');"></a>
+            <div class="item-overlay center"><button id="song12-play" onclick="changePlayerState(11);" class="btn-playpause">Play</button></div></div><div class="item-info"><div class="item-overlay bottom text-right">
+              <a href="#" class="btn-favorite"><i onclick="addToOnlineSongs(12);" class="fa fa-plus"></i></a><a href="#" class="btn-more" data-toggle="dropdown"><a id="12" onclick="addToDownloadedSongs(12);" class="fa fa-cloud-download"></a></a><div id="song12-videoId" link="" hidden></div><div class="dropdown-menu pull-right black lt"></div></div><div class="item-title text-ellipsis">
+                <a id="song12-title" ></a></div><div class="item-author text-sm text-ellipsis "><a id="song12-artist" onclick="execSearchSong(12);" class="text-muted"></a></div><div class="item-meta text-sm text-muted">
+                  </div></div></div></div>
+          <div class="col-xs-12" id="song13"><div class="item r" data-id="item-1" data-src=""><div class="item-media "><a id="song13-image"  class="item-media-content" style="background-image: url('images/b0.jpg');"></a>
+            <div class="item-overlay center"><button id="song13-play" onclick="changePlayerState(12);" class="btn-playpause">Play</button></div></div><div class="item-info"><div class="item-overlay bottom text-right">
+              <a href="#" class="btn-favorite"><i onclick="addToOnlineSongs(13);" class="fa fa-plus"></i></a><a href="#" class="btn-more" data-toggle="dropdown"><a id="13" onclick="addToDownloadedSongs(13);" class="fa fa-cloud-download"></a></a><div id="song13-videoId" link="" hidden></div><div class="dropdown-menu pull-right black lt"></div></div><div class="item-title text-ellipsis">
+                <a id="song13-title" ></a></div><div class="item-author text-sm text-ellipsis "><a id="song13-artist" onclick="execSearchSong(13);" class="text-muted"></a></div><div class="item-meta text-sm text-muted">
+                  </div></div></div></div>
+          <div class="col-xs-12" id="song14"><div class="item r" data-id="item-1" data-src=""><div class="item-media "><a id="song14-image"  class="item-media-content" style="background-image: url('images/b0.jpg');"></a>
+            <div class="item-overlay center"><button id="song14-play" onclick="changePlayerState(13);" class="btn-playpause">Play</button></div></div><div class="item-info"><div class="item-overlay bottom text-right">
+              <a href="#" class="btn-favorite"><i onclick="addToOnlineSongs(14);" class="fa fa-plus"></i></a><a href="#" class="btn-more" data-toggle="dropdown"><a id="14" onclick="addToDownloadedSongs(14);" class="fa fa-cloud-download"></a></a><div id="song14-videoId" link="" hidden></div><div class="dropdown-menu pull-right black lt"></div></div><div class="item-title text-ellipsis">
+                <a id="song14-title" ></a></div><div class="item-author text-sm text-ellipsis "><a id="song14-artist" onclick="execSearchSong(14);" class="text-muted"></a></div><div class="item-meta text-sm text-muted">
+                  </div></div></div></div>
+          <div class="col-xs-12" id="song15"><div class="item r" data-id="item-1" data-src=""><div class="item-media "><a id="song15-image"  class="item-media-content" style="background-image: url('images/b0.jpg');"></a>
+            <div class="item-overlay center"><button id="song15-play" onclick="changePlayerState(14);" class="btn-playpause">Play</button></div></div><div class="item-info"><div class="item-overlay bottom text-right">
+              <a href="#" class="btn-favorite"><i onclick="addToOnlineSongs(15);" class="fa fa-plus"></i></a><a href="#" class="btn-more" data-toggle="dropdown"><a id="15" onclick="addToDownloadedSongs(15);" class="fa fa-cloud-download"></a></a><div id="song15-videoId" link="" hidden></div><div class="dropdown-menu pull-right black lt"></div></div><div class="item-title text-ellipsis">
+                <a id="song15-title" ></a></div><div class="item-author text-sm text-ellipsis "><a id="song15-artist" onclick="execSearchSong(15);" class="text-muted"></a></div><div class="item-meta text-sm text-muted">
+                  </div></div></div></div>
+          <div class="col-xs-12" id="song16"><div class="item r" data-id="item-1" data-src=""><div class="item-media "><a id="song16-image"  class="item-media-content" style="background-image: url('images/b0.jpg');"></a>
+            <div class="item-overlay center"><button id="song16-play" onclick="changePlayerState(15);" class="btn-playpause">Play</button></div></div><div class="item-info"><div class="item-overlay bottom text-right">
+              <a href="#" class="btn-favorite"><i onclick="addToOnlineSongs(16);" class="fa fa-plus"></i></a><a href="#" class="btn-more" data-toggle="dropdown"><a id="16" onclick="addToDownloadedSongs(16);" class="fa fa-cloud-download"></a></a><div id="song16-videoId" link="" hidden></div><div class="dropdown-menu pull-right black lt"></div></div><div class="item-title text-ellipsis">
+                <a id="song16-title" ></a></div><div class="item-author text-sm text-ellipsis "><a id="song16-artist" onclick="execSearchSong(16);" class="text-muted"></a></div><div class="item-meta text-sm text-muted">
+                  </div></div></div></div>
+          <div class="col-xs-12" id="song17"><div class="item r" data-id="item-1" data-src=""><div class="item-media "><a id="song17-image"  class="item-media-content" style="background-image: url('images/b0.jpg');"></a>
+            <div class="item-overlay center"><button id="song17-play" onclick="changePlayerState(16);" class="btn-playpause">Play</button></div></div><div class="item-info"><div class="item-overlay bottom text-right">
+              <a href="#" class="btn-favorite"><i onclick="addToOnlineSongs(17);" class="fa fa-plus"></i></a><a href="#" class="btn-more" data-toggle="dropdown"><a id="17" onclick="addToDownloadedSongs(17);" class="fa fa-cloud-download"></a></a><div id="song17-videoId" link="" hidden></div><div class="dropdown-menu pull-right black lt"></div></div><div class="item-title text-ellipsis">
+                <a id="song17-title" ></a></div><div class="item-author text-sm text-ellipsis "><a id="song17-artist" onclick="execSearchSong(17);" class="text-muted"></a></div><div class="item-meta text-sm text-muted">
+                  </div></div></div></div>
+          <div class="col-xs-12" id="song18"><div class="item r" data-id="item-1" data-src=""><div class="item-media "><a id="song18-image"  class="item-media-content" style="background-image: url('images/b0.jpg');"></a>
+            <div class="item-overlay center"><button id="song18-play" onclick="changePlayerState(17);" class="btn-playpause">Play</button></div></div><div class="item-info"><div class="item-overlay bottom text-right">
+              <a href="#" class="btn-favorite"><i onclick="addToOnlineSongs(18);" class="fa fa-plus"></i></a><a href="#" class="btn-more" data-toggle="dropdown"><a id="18" onclick="addToDownloadedSongs(18);" class="fa fa-cloud-download"></a></a><div id="song18-videoId" link="" hidden></div><div class="dropdown-menu pull-right black lt"></div></div><div class="item-title text-ellipsis">
+                <a id="song18-title" ></a></div><div class="item-author text-sm text-ellipsis "><a id="song18-artist" onclick="execSearchSong(18);" class="text-muted"></a></div><div class="item-meta text-sm text-muted">
+                  </div></div></div></div>
+          <div class="col-xs-12" id="song19"><div class="item r" data-id="item-1" data-src=""><div class="item-media "><a id="song19-image"  class="item-media-content" style="background-image: url('images/b0.jpg');"></a>
+            <div class="item-overlay center"><button id="song19-play" onclick="changePlayerState(18);" class="btn-playpause">Play</button></div></div><div class="item-info"><div class="item-overlay bottom text-right">
+              <a href="#" class="btn-favorite"><i onclick="addToOnlineSongs(19);" class="fa fa-plus"></i></a><a href="#" class="btn-more" data-toggle="dropdown"><a id="19" onclick="addToDownloadedSongs(19);" class="fa fa-cloud-download"></a></a><div id="song19-videoId" link="" hidden></div><div class="dropdown-menu pull-right black lt"></div></div><div class="item-title text-ellipsis">
+                <a id="song19-title" ></a></div><div class="item-author text-sm text-ellipsis "><a id="song19-artist" onclick="execSearchSong(19);" class="text-muted"></a></div><div class="item-meta text-sm text-muted">
+                  </div></div></div></div>
+          <div class="col-xs-12" id="song20"><div class="item r" data-id="item-1" data-src=""><div class="item-media "><a id="song20-image"  class="item-media-content" style="background-image: url('images/b0.jpg');"></a>
+            <div class="item-overlay center"><button id="song20-play" onclick="changePlayerState(19);" class="btn-playpause">Play</button></div></div><div class="item-info"><div class="item-overlay bottom text-right">
+              <a href="#" class="btn-favorite"><i onclick="addToOnlineSongs(20);" class="fa fa-plus"></i></a><a href="#" class="btn-more" data-toggle="dropdown"><a id="20" onclick="addToDownloadedSongs(20);" class="fa fa-cloud-download"></a></a><div id="song20-videoId" link="" hidden></div><div class="dropdown-menu pull-right black lt"></div></div><div class="item-title text-ellipsis">
+                <a id="song20-title" ></a></div><div class="item-author text-sm text-ellipsis "><a id="song20-artist" onclick="execSearchSong(20);" class="text-muted"></a></div><div class="item-meta text-sm text-muted">
+                  </div></div></div></div>
+          <div class="col-xs-12" id="song21"><div class="item r" data-id="item-1" data-src=""><div class="item-media "><a id="song21-image"  class="item-media-content" style="background-image: url('images/b0.jpg');"></a>
+            <div class="item-overlay center"><button id="song21-play" onclick="changePlayerState(20);" class="btn-playpause">Play</button></div></div><div class="item-info"><div class="item-overlay bottom text-right">
+              <a href="#" class="btn-favorite"><i onclick="addToOnlineSongs(21);" class="fa fa-plus"></i></a><a href="#" class="btn-more" data-toggle="dropdown"><a id="21" onclick="addToDownloadedSongs(21);" class="fa fa-cloud-download"></a></a><div id="song21-videoId" link="" hidden></div><div class="dropdown-menu pull-right black lt"></div></div><div class="item-title text-ellipsis">
+                <a id="song21-title" ></a></div><div class="item-author text-sm text-ellipsis "><a id="song21-artist" onclick="execSearchSong(21);" class="text-muted"></a></div><div class="item-meta text-sm text-muted">
+                  </div></div></div></div>
+          <div class="col-xs-12" id="song22"><div class="item r" data-id="item-1" data-src=""><div class="item-media "><a id="song22-image"  class="item-media-content" style="background-image: url('images/b0.jpg');"></a>
+            <div class="item-overlay center"><button id="song22-play" onclick="changePlayerState(21);" class="btn-playpause">Play</button></div></div><div class="item-info"><div class="item-overlay bottom text-right">
+              <a href="#" class="btn-favorite"><i onclick="addToOnlineSongs(22);" class="fa fa-plus"></i></a><a href="#" class="btn-more" data-toggle="dropdown"><a id="22" onclick="addToDownloadedSongs(22);" class="fa fa-cloud-download"></a></a><div id="song22-videoId" link="" hidden></div><div class="dropdown-menu pull-right black lt"></div></div><div class="item-title text-ellipsis">
+                <a id="song22-title" ></a></div><div class="item-author text-sm text-ellipsis "><a id="song22-artist" onclick="execSearchSong(22);" class="text-muted"></a></div><div class="item-meta text-sm text-muted">
+                  </div></div></div></div>
+          <div class="col-xs-12" id="song23"><div class="item r" data-id="item-1" data-src=""><div class="item-media "><a id="song23-image"  class="item-media-content" style="background-image: url('images/b0.jpg');"></a>
+            <div class="item-overlay center"><button id="song23-play" onclick="changePlayerState(22);" class="btn-playpause">Play</button></div></div><div class="item-info"><div class="item-overlay bottom text-right">
+              <a href="#" class="btn-favorite"><i onclick="addToOnlineSongs(23);" class="fa fa-plus"></i></a><a href="#" class="btn-more" data-toggle="dropdown"><a id="23" onclick="addToDownloadedSongs(23);" class="fa fa-cloud-download"></a></a><div id="song23-videoId" link="" hidden></div><div class="dropdown-menu pull-right black lt"></div></div><div class="item-title text-ellipsis">
+                <a id="song23-title" ></a></div><div class="item-author text-sm text-ellipsis "><a id="song23-artist" onclick="execSearchSong(23);" class="text-muted"></a></div><div class="item-meta text-sm text-muted">
+                  </div></div></div></div>
+          <div class="col-xs-12" id="song24"><div class="item r" data-id="item-1" data-src=""><div class="item-media "><a id="song24-image"  class="item-media-content" style="background-image: url('images/b0.jpg');"></a>
+            <div class="item-overlay center"><button id="song24-play" onclick="changePlayerState(23);" class="btn-playpause">Play</button></div></div><div class="item-info"><div class="item-overlay bottom text-right">
+              <a href="#" class="btn-favorite"><i onclick="addToOnlineSongs(24);" class="fa fa-plus"></i></a><a href="#" class="btn-more" data-toggle="dropdown"><a id="24" onclick="addToDownloadedSongs(24);" class="fa fa-cloud-download"></a></a><div id="song24-videoId" link="" hidden></div><div class="dropdown-menu pull-right black lt"></div></div><div class="item-title text-ellipsis">
+                <a id="song24-title" ></a></div><div class="item-author text-sm text-ellipsis "><a id="song24-artist" onclick="execSearchSong(24);" class="text-muted"></a></div><div class="item-meta text-sm text-muted">
+                  </div></div></div></div>
+          <div class="col-xs-12" id="song25"><div class="item r" data-id="item-1" data-src=""><div class="item-media "><a id="song25-image"  class="item-media-content" style="background-image: url('images/b0.jpg');"></a>
+            <div class="item-overlay center"><button id="song25-play" onclick="changePlayerState(24);" class="btn-playpause">Play</button></div></div><div class="item-info"><div class="item-overlay bottom text-right">
+              <a href="#" class="btn-favorite"><i onclick="addToOnlineSongs(25);" class="fa fa-plus"></i></a><a href="#" class="btn-more" data-toggle="dropdown"><a id="25" onclick="addToDownloadedSongs(25);" class="fa fa-cloud-download"></a></a><div id="song25-videoId" link="" hidden></div><div class="dropdown-menu pull-right black lt"></div></div><div class="item-title text-ellipsis">
+                <a id="song25-title" ></a></div><div class="item-author text-sm text-ellipsis "><a id="song25-artist" onclick="execSearchSong(25);" class="text-muted"></a></div><div class="item-meta text-sm text-muted">
+                  </div></div></div></div>
+          <div class="col-xs-12" id="song26"><div class="item r" data-id="item-1" data-src=""><div class="item-media "><a id="song26-image"  class="item-media-content" style="background-image: url('images/b0.jpg');"></a>
+            <div class="item-overlay center"><button id="song26-play" onclick="changePlayerState(25);" class="btn-playpause">Play</button></div></div><div class="item-info"><div class="item-overlay bottom text-right">
+              <a href="#" class="btn-favorite"><i onclick="addToOnlineSongs(26);" class="fa fa-plus"></i></a><a href="#" class="btn-more" data-toggle="dropdown"><a id="26" onclick="addToDownloadedSongs(26);" class="fa fa-cloud-download"></a></a><div id="song26-videoId" link="" hidden></div><div class="dropdown-menu pull-right black lt"></div></div><div class="item-title text-ellipsis">
+                <a id="song26-title" ></a></div><div class="item-author text-sm text-ellipsis "><a id="song26-artist" onclick="execSearchSong(26);" class="text-muted"></a></div><div class="item-meta text-sm text-muted">
+                  </div></div></div></div>
+          <div class="col-xs-12" id="song27"><div class="item r" data-id="item-1" data-src=""><div class="item-media "><a id="song27-image"  class="item-media-content" style="background-image: url('images/b0.jpg');"></a>
+            <div class="item-overlay center"><button id="song27-play" onclick="changePlayerState(26);" class="btn-playpause">Play</button></div></div><div class="item-info"><div class="item-overlay bottom text-right">
+              <a href="#" class="btn-favorite"><i onclick="addToOnlineSongs(27);" class="fa fa-plus"></i></a><a href="#" class="btn-more" data-toggle="dropdown"><a id="27" onclick="addToDownloadedSongs(27);" class="fa fa-cloud-download"></a></a><div id="song27-videoId" link="" hidden></div><div class="dropdown-menu pull-right black lt"></div></div><div class="item-title text-ellipsis">
+                <a id="song27-title" ></a></div><div class="item-author text-sm text-ellipsis "><a id="song27-artist" onclick="execSearchSong(27);" class="text-muted"></a></div><div class="item-meta text-sm text-muted">
+                  </div></div></div></div>
+          <div class="col-xs-12" id="song28"><div class="item r" data-id="item-1" data-src=""><div class="item-media "><a id="song28-image"  class="item-media-content" style="background-image: url('images/b0.jpg');"></a>
+            <div class="item-overlay center"><button id="song28-play" onclick="changePlayerState(27);" class="btn-playpause">Play</button></div></div><div class="item-info"><div class="item-overlay bottom text-right">
+              <a href="#" class="btn-favorite"><i onclick="addToOnlineSongs(28);" class="fa fa-plus"></i></a><a href="#" class="btn-more" data-toggle="dropdown"><a id="28" onclick="addToDownloadedSongs(28);" class="fa fa-cloud-download"></a></a><div id="song28-videoId" link="" hidden></div><div class="dropdown-menu pull-right black lt"></div></div><div class="item-title text-ellipsis">
+                <a id="song28-title" ></a></div><div class="item-author text-sm text-ellipsis "><a id="song28-artist" onclick="execSearchSong(28);" class="text-muted"></a></div><div class="item-meta text-sm text-muted">
+                  </div></div></div></div>
+          <div class="col-xs-12" id="song29"><div class="item r" data-id="item-1" data-src=""><div class="item-media "><a id="song29-image"  class="item-media-content" style="background-image: url('images/b0.jpg');"></a>
+            <div class="item-overlay center"><button id="song29-play" onclick="changePlayerState(28);" class="btn-playpause">Play</button></div></div><div class="item-info"><div class="item-overlay bottom text-right">
+              <a href="#" class="btn-favorite"><i onclick="addToOnlineSongs(29);" class="fa fa-plus"></i></a><a href="#" class="btn-more" data-toggle="dropdown"><a id="29" onclick="addToDownloadedSongs(29);" class="fa fa-cloud-download"></a></a><div id="song29-videoId" link="" hidden></div><div class="dropdown-menu pull-right black lt"></div></div><div class="item-title text-ellipsis">
+                <a id="song29-title" ></a></div><div class="item-author text-sm text-ellipsis "><a id="song29-artist" onclick="execSearchSong(29);" class="text-muted"></a></div><div class="item-meta text-sm text-muted">
+                  </div></div></div></div>
+          <div class="col-xs-12" id="song30"><div class="item r" data-id="item-1" data-src=""><div class="item-media "><a id="song30-image"  class="item-media-content" style="background-image: url('images/b0.jpg');"></a>
+            <div class="item-overlay center"><button id="song30-play" onclick="changePlayerState(29);" class="btn-playpause">Play</button></div></div><div class="item-info"><div class="item-overlay bottom text-right">
+              <a href="#" class="btn-favorite"><i onclick="addToOnlineSongs(30);" class="fa fa-plus"></i></a><a href="#" class="btn-more" data-toggle="dropdown"><a id="30" onclick="addToDownloadedSongs(30);" class="fa fa-cloud-download"></a></a><div id="song30-videoId" link="" hidden></div><div class="dropdown-menu pull-right black lt"></div></div><div class="item-title text-ellipsis">
+                <a id="song30-title" ></a></div><div class="item-author text-sm text-ellipsis "><a id="song30-artist" onclick="execSearchSong(30);" class="text-muted"></a></div><div class="item-meta text-sm text-muted">
+                  </div></div></div></div>
+          <div class="col-xs-12" id="song31"><div class="item r" data-id="item-1" data-src=""><div class="item-media "><a id="song31-image"  class="item-media-content" style="background-image: url('images/b0.jpg');"></a>
+            <div class="item-overlay center"><button id="song31-play" onclick="changePlayerState(30);" class="btn-playpause">Play</button></div></div><div class="item-info"><div class="item-overlay bottom text-right">
+              <a href="#" class="btn-favorite"><i onclick="addToOnlineSongs(31);" class="fa fa-plus"></i></a><a href="#" class="btn-more" data-toggle="dropdown"><a id="31" onclick="addToDownloadedSongs(31);" class="fa fa-cloud-download"></a></a><div id="song31-videoId" link="" hidden></div><div class="dropdown-menu pull-right black lt"></div></div><div class="item-title text-ellipsis">
+                <a id="song31-title" ></a></div><div class="item-author text-sm text-ellipsis "><a id="song31-artist" onclick="execSearchSong(31);" class="text-muted"></a></div><div class="item-meta text-sm text-muted">
+                  </div></div></div></div>
+          <div class="col-xs-12" id="song32"><div class="item r" data-id="item-1" data-src=""><div class="item-media "><a id="song32-image"  class="item-media-content" style="background-image: url('images/b0.jpg');"></a>
+            <div class="item-overlay center"><button id="song32-play" onclick="changePlayerState(31);" class="btn-playpause">Play</button></div></div><div class="item-info"><div class="item-overlay bottom text-right">
+              <a href="#" class="btn-favorite"><i onclick="addToOnlineSongs(32);" class="fa fa-plus"></i></a><a href="#" class="btn-more" data-toggle="dropdown"><a id="32" onclick="addToDownloadedSongs(32);" class="fa fa-cloud-download"></a></a><div id="song32-videoId" link="" hidden></div><div class="dropdown-menu pull-right black lt"></div></div><div class="item-title text-ellipsis">
+                <a id="song32-title" ></a></div><div class="item-author text-sm text-ellipsis "><a id="song32-artist" onclick="execSearchSong(32);" class="text-muted"></a></div><div class="item-meta text-sm text-muted">
+                  </div></div></div></div>
+          <div class="col-xs-12" id="song33"><div class="item r" data-id="item-1" data-src=""><div class="item-media "><a id="song33-image"  class="item-media-content" style="background-image: url('images/b0.jpg');"></a>
+            <div class="item-overlay center"><button id="song33-play" onclick="changePlayerState(32);" class="btn-playpause">Play</button></div></div><div class="item-info"><div class="item-overlay bottom text-right">
+              <a href="#" class="btn-favorite"><i onclick="addToOnlineSongs(33);" class="fa fa-plus"></i></a><a href="#" class="btn-more" data-toggle="dropdown"><a id="33" onclick="addToDownloadedSongs(33);" class="fa fa-cloud-download"></a></a><div id="song33-videoId" link="" hidden></div><div class="dropdown-menu pull-right black lt"></div></div><div class="item-title text-ellipsis">
+                <a id="song33-title" ></a></div><div class="item-author text-sm text-ellipsis "><a id="song33-artist" onclick="execSearchSong(33);" class="text-muted"></a></div><div class="item-meta text-sm text-muted">
+                  </div></div></div></div>
+          <div class="col-xs-12" id="song34"><div class="item r" data-id="item-1" data-src=""><div class="item-media "><a id="song34-image"  class="item-media-content" style="background-image: url('images/b0.jpg');"></a>
+            <div class="item-overlay center"><button id="song34-play" onclick="changePlayerState(33);" class="btn-playpause">Play</button></div></div><div class="item-info"><div class="item-overlay bottom text-right">
+              <a href="#" class="btn-favorite"><i onclick="addToOnlineSongs(34);" class="fa fa-plus"></i></a><a href="#" class="btn-more" data-toggle="dropdown"><a id="34" onclick="addToDownloadedSongs(34);" class="fa fa-cloud-download"></a></a><div id="song34-videoId" link="" hidden></div><div class="dropdown-menu pull-right black lt"></div></div><div class="item-title text-ellipsis">
+                <a id="song34-title" ></a></div><div class="item-author text-sm text-ellipsis "><a id="song34-artist" onclick="execSearchSong(34);" class="text-muted"></a></div><div class="item-meta text-sm text-muted">
+                  </div></div></div></div>
+          <div class="col-xs-12" id="song35"><div class="item r" data-id="item-1" data-src=""><div class="item-media "><a id="song35-image"  class="item-media-content" style="background-image: url('images/b0.jpg');"></a>
+            <div class="item-overlay center"><button id="song35-play" onclick="changePlayerState(34);" class="btn-playpause">Play</button></div></div><div class="item-info"><div class="item-overlay bottom text-right">
+              <a href="#" class="btn-favorite"><i onclick="addToOnlineSongs(35);" class="fa fa-plus"></i></a><a href="#" class="btn-more" data-toggle="dropdown"><a id="35" onclick="addToDownloadedSongs(35);" class="fa fa-cloud-download"></a></a><div id="song35-videoId" link="" hidden></div><div class="dropdown-menu pull-right black lt"></div></div><div class="item-title text-ellipsis">
+                <a id="song35-title" ></a></div><div class="item-author text-sm text-ellipsis "><a id="song35-artist" onclick="execSearchSong(35);" class="text-muted"></a></div><div class="item-meta text-sm text-muted">
+                  </div></div></div></div>
+          <div class="col-xs-12" id="song36"><div class="item r" data-id="item-1" data-src=""><div class="item-media "><a id="song36-image"  class="item-media-content" style="background-image: url('images/b0.jpg');"></a>
+            <div class="item-overlay center"><button id="song36-play" onclick="changePlayerState(35);" class="btn-playpause">Play</button></div></div><div class="item-info"><div class="item-overlay bottom text-right">
+              <a href="#" class="btn-favorite"><i onclick="addToOnlineSongs(36);" class="fa fa-plus"></i></a><a href="#" class="btn-more" data-toggle="dropdown"><a id="36" onclick="addToDownloadedSongs(36);" class="fa fa-cloud-download"></a></a><div id="song36-videoId" link="" hidden></div><div class="dropdown-menu pull-right black lt"></div></div><div class="item-title text-ellipsis">
+                <a id="song36-title" ></a></div><div class="item-author text-sm text-ellipsis "><a id="song36-artist" onclick="execSearchSong(36);" class="text-muted"></a></div><div class="item-meta text-sm text-muted">
+                  </div></div></div></div>
+          <div class="col-xs-12" id="song37"><div class="item r" data-id="item-1" data-src=""><div class="item-media "><a id="song37-image"  class="item-media-content" style="background-image: url('images/b0.jpg');"></a>
+            <div class="item-overlay center"><button id="song37-play" onclick="changePlayerState(36);" class="btn-playpause">Play</button></div></div><div class="item-info"><div class="item-overlay bottom text-right">
+              <a href="#" class="btn-favorite"><i onclick="addToOnlineSongs(37);" class="fa fa-plus"></i></a><a href="#" class="btn-more" data-toggle="dropdown"><a id="37" onclick="addToDownloadedSongs(37);" class="fa fa-cloud-download"></a></a><div id="song37-videoId" link="" hidden></div><div class="dropdown-menu pull-right black lt"></div></div><div class="item-title text-ellipsis">
+                <a id="song37-title" ></a></div><div class="item-author text-sm text-ellipsis "><a id="song37-artist" onclick="execSearchSong(37);" class="text-muted"></a></div><div class="item-meta text-sm text-muted">
+                  </div></div></div></div>
+          <div class="col-xs-12" id="song38"><div class="item r" data-id="item-1" data-src=""><div class="item-media "><a id="song38-image"  class="item-media-content" style="background-image: url('images/b0.jpg');"></a>
+            <div class="item-overlay center"><button id="song38-play" onclick="changePlayerState(37);" class="btn-playpause">Play</button></div></div><div class="item-info"><div class="item-overlay bottom text-right">
+              <a href="#" class="btn-favorite"><i onclick="addToOnlineSongs(38);" class="fa fa-plus"></i></a><a href="#" class="btn-more" data-toggle="dropdown"><a id="38" onclick="addToDownloadedSongs(38);" class="fa fa-cloud-download"></a></a><div id="song38-videoId" link="" hidden></div><div class="dropdown-menu pull-right black lt"></div></div><div class="item-title text-ellipsis">
+                <a id="song38-title" ></a></div><div class="item-author text-sm text-ellipsis "><a id="song38-artist" onclick="execSearchSong(38);" class="text-muted"></a></div><div class="item-meta text-sm text-muted">
+                  </div></div></div></div>
+          <div class="col-xs-12" id="song39"><div class="item r" data-id="item-1" data-src=""><div class="item-media "><a id="song39-image"  class="item-media-content" style="background-image: url('images/b0.jpg');"></a>
+            <div class="item-overlay center"><button id="song39-play" onclick="changePlayerState(38);" class="btn-playpause">Play</button></div></div><div class="item-info"><div class="item-overlay bottom text-right">
+              <a href="#" class="btn-favorite"><i onclick="addToOnlineSongs(39);" class="fa fa-plus"></i></a><a href="#" class="btn-more" data-toggle="dropdown"><a id="39" onclick="addToDownloadedSongs(39);" class="fa fa-cloud-download"></a></a><div id="song39-videoId" link="" hidden></div><div class="dropdown-menu pull-right black lt"></div></div><div class="item-title text-ellipsis">
+                <a id="song39-title" ></a></div><div class="item-author text-sm text-ellipsis "><a id="song39-artist" onclick="execSearchSong(39);" class="text-muted"></a></div><div class="item-meta text-sm text-muted">
+                  </div></div></div></div>
+          <div class="col-xs-12" id="song40"><div class="item r" data-id="item-1" data-src=""><div class="item-media "><a id="song40-image"  class="item-media-content" style="background-image: url('images/b0.jpg');"></a>
+            <div class="item-overlay center"><button id="song40-play" onclick="changePlayerState(39);" class="btn-playpause">Play</button></div></div><div class="item-info"><div class="item-overlay bottom text-right">
+              <a href="#" class="btn-favorite"><i onclick="addToOnlineSongs(40);" class="fa fa-plus"></i></a><a href="#" class="btn-more" data-toggle="dropdown"><a id="40" onclick="addToDownloadedSongs(40);" class="fa fa-cloud-download"></a></a><div id="song40-videoId" link="" hidden></div><div class="dropdown-menu pull-right black lt"></div></div><div class="item-title text-ellipsis">
+                <a id="song40-title" ></a></div><div class="item-author text-sm text-ellipsis "><a id="song40-artist" onclick="execSearchSong(40);" class="text-muted"></a></div><div class="item-meta text-sm text-muted">
+                  </div></div></div></div>
+          <div class="col-xs-12" id="song41"><div class="item r" data-id="item-1" data-src=""><div class="item-media "><a id="song41-image"  class="item-media-content" style="background-image: url('images/b0.jpg');"></a>
+            <div class="item-overlay center"><button id="song41-play" onclick="changePlayerState(40);" class="btn-playpause">Play</button></div></div><div class="item-info"><div class="item-overlay bottom text-right">
+              <a href="#" class="btn-favorite"><i onclick="addToOnlineSongs(41);" class="fa fa-plus"></i></a><a href="#" class="btn-more" data-toggle="dropdown"><a id="41" onclick="addToDownloadedSongs(41);" class="fa fa-cloud-download"></a></a><div id="song41-videoId" link="" hidden></div><div class="dropdown-menu pull-right black lt"></div></div><div class="item-title text-ellipsis">
+                <a id="song41-title" ></a></div><div class="item-author text-sm text-ellipsis "><a id="song41-artist" onclick="execSearchSong(41);" class="text-muted"></a></div><div class="item-meta text-sm text-muted">
+                  </div></div></div></div>
+          <div class="col-xs-12" id="song42"><div class="item r" data-id="item-1" data-src=""><div class="item-media "><a id="song42-image"  class="item-media-content" style="background-image: url('images/b0.jpg');"></a>
+            <div class="item-overlay center"><button id="song42-play" onclick="changePlayerState(41);" class="btn-playpause">Play</button></div></div><div class="item-info"><div class="item-overlay bottom text-right">
+              <a href="#" class="btn-favorite"><i onclick="addToOnlineSongs(42);" class="fa fa-plus"></i></a><a href="#" class="btn-more" data-toggle="dropdown"><a id="42" onclick="addToDownloadedSongs(42);" class="fa fa-cloud-download"></a></a><div id="song42-videoId" link="" hidden></div><div class="dropdown-menu pull-right black lt"></div></div><div class="item-title text-ellipsis">
+                <a id="song42-title" ></a></div><div class="item-author text-sm text-ellipsis "><a id="song42-artist" onclick="execSearchSong(42);" class="text-muted"></a></div><div class="item-meta text-sm text-muted">
+                  </div></div></div></div>
+          <div class="col-xs-12" id="song43"><div class="item r" data-id="item-1" data-src=""><div class="item-media "><a id="song43-image"  class="item-media-content" style="background-image: url('images/b0.jpg');"></a>
+            <div class="item-overlay center"><button id="song43-play" onclick="changePlayerState(42);" class="btn-playpause">Play</button></div></div><div class="item-info"><div class="item-overlay bottom text-right">
+              <a href="#" class="btn-favorite"><i onclick="addToOnlineSongs(43);" class="fa fa-plus"></i></a><a href="#" class="btn-more" data-toggle="dropdown"><a id="43" onclick="addToDownloadedSongs(43);" class="fa fa-cloud-download"></a></a><div id="song43-videoId" link="" hidden></div><div class="dropdown-menu pull-right black lt"></div></div><div class="item-title text-ellipsis">
+                <a id="song43-title" ></a></div><div class="item-author text-sm text-ellipsis "><a id="song43-artist" onclick="execSearchSong(43);" class="text-muted"></a></div><div class="item-meta text-sm text-muted">
+                  </div></div></div></div>
+          <div class="col-xs-12" id="song44"><div class="item r" data-id="item-1" data-src=""><div class="item-media "><a id="song44-image"  class="item-media-content" style="background-image: url('images/b0.jpg');"></a>
+            <div class="item-overlay center"><button id="song44-play" onclick="changePlayerState(43);" class="btn-playpause">Play</button></div></div><div class="item-info"><div class="item-overlay bottom text-right">
+              <a href="#" class="btn-favorite"><i onclick="addToOnlineSongs(44);" class="fa fa-plus"></i></a><a href="#" class="btn-more" data-toggle="dropdown"><a id="44" onclick="addToDownloadedSongs(44);" class="fa fa-cloud-download"></a></a><div id="song44-videoId" link="" hidden></div><div class="dropdown-menu pull-right black lt"></div></div><div class="item-title text-ellipsis">
+                <a id="song44-title" ></a></div><div class="item-author text-sm text-ellipsis "><a id="song44-artist" onclick="execSearchSong(44);" class="text-muted"></a></div><div class="item-meta text-sm text-muted">
+                  </div></div></div></div>
+          <div class="col-xs-12" id="song45"><div class="item r" data-id="item-1" data-src=""><div class="item-media "><a id="song45-image"  class="item-media-content" style="background-image: url('images/b0.jpg');"></a>
+            <div class="item-overlay center"><button id="song45-play" onclick="changePlayerState(44);" class="btn-playpause">Play</button></div></div><div class="item-info"><div class="item-overlay bottom text-right">
+              <a href="#" class="btn-favorite"><i onclick="addToOnlineSongs(45);" class="fa fa-plus"></i></a><a href="#" class="btn-more" data-toggle="dropdown"><a id="45" onclick="addToDownloadedSongs(45);" class="fa fa-cloud-download"></a></a><div id="song45-videoId" link="" hidden></div><div class="dropdown-menu pull-right black lt"></div></div><div class="item-title text-ellipsis">
+                <a id="song45-title" ></a></div><div class="item-author text-sm text-ellipsis "><a id="song45-artist" onclick="execSearchSong(45);" class="text-muted"></a></div><div class="item-meta text-sm text-muted">
+                  </div></div></div></div>
+          <div class="col-xs-12" id="song46"><div class="item r" data-id="item-1" data-src=""><div class="item-media "><a id="song46-image"  class="item-media-content" style="background-image: url('images/b0.jpg');"></a>
+            <div class="item-overlay center"><button id="song46-play" onclick="changePlayerState(45);" class="btn-playpause">Play</button></div></div><div class="item-info"><div class="item-overlay bottom text-right">
+              <a href="#" class="btn-favorite"><i onclick="addToOnlineSongs(46);" class="fa fa-plus"></i></a><a href="#" class="btn-more" data-toggle="dropdown"><a id="46" onclick="addToDownloadedSongs(46);" class="fa fa-cloud-download"></a></a><div id="song46-videoId" link="" hidden></div><div class="dropdown-menu pull-right black lt"></div></div><div class="item-title text-ellipsis">
+                <a id="song46-title" ></a></div><div class="item-author text-sm text-ellipsis "><a id="song46-artist" onclick="execSearchSong(46);" class="text-muted"></a></div><div class="item-meta text-sm text-muted">
+                  </div></div></div></div>
+          <div class="col-xs-12" id="song47"><div class="item r" data-id="item-1" data-src=""><div class="item-media "><a id="song47-image"  class="item-media-content" style="background-image: url('images/b0.jpg');"></a>
+            <div class="item-overlay center"><button id="song47-play" onclick="changePlayerState(46);" class="btn-playpause">Play</button></div></div><div class="item-info"><div class="item-overlay bottom text-right">
+              <a href="#" class="btn-favorite"><i onclick="addToOnlineSongs(47);" class="fa fa-plus"></i></a><a href="#" class="btn-more" data-toggle="dropdown"><a id="47" onclick="addToDownloadedSongs(47);" class="fa fa-cloud-download"></a></a><div id="song47-videoId" link="" hidden></div><div class="dropdown-menu pull-right black lt"></div></div><div class="item-title text-ellipsis">
+                <a id="song47-title" ></a></div><div class="item-author text-sm text-ellipsis "><a id="song47-artist" onclick="execSearchSong(47);" class="text-muted"></a></div><div class="item-meta text-sm text-muted">
+                  </div></div></div></div>
+          <div class="col-xs-12" id="song48"><div class="item r" data-id="item-1" data-src=""><div class="item-media "><a id="song48-image"  class="item-media-content" style="background-image: url('images/b0.jpg');"></a>
+            <div class="item-overlay center"><button id="song48-play" onclick="changePlayerState(47);" class="btn-playpause">Play</button></div></div><div class="item-info"><div class="item-overlay bottom text-right">
+              <a href="#" class="btn-favorite"><i onclick="addToOnlineSongs(48);" class="fa fa-plus"></i></a><a href="#" class="btn-more" data-toggle="dropdown"><a id="48" onclick="addToDownloadedSongs(48);" class="fa fa-cloud-download"></a></a><div id="song48-videoId" link="" hidden></div><div class="dropdown-menu pull-right black lt"></div></div><div class="item-title text-ellipsis">
+                <a id="song48-title" ></a></div><div class="item-author text-sm text-ellipsis "><a id="song48-artist" onclick="execSearchSong(48);" class="text-muted"></a></div><div class="item-meta text-sm text-muted">
+                  </div></div></div></div>
+          <div class="col-xs-12" id="song49"><div class="item r" data-id="item-1" data-src=""><div class="item-media "><a id="song49-image"  class="item-media-content" style="background-image: url('images/b0.jpg');"></a>
+            <div class="item-overlay center"><button id="song49-play" onclick="changePlayerState(48);" class="btn-playpause">Play</button></div></div><div class="item-info"><div class="item-overlay bottom text-right">
+              <a href="#" class="btn-favorite"><i onclick="addToOnlineSongs(49);" class="fa fa-plus"></i></a><a href="#" class="btn-more" data-toggle="dropdown"><a id="49" onclick="addToDownloadedSongs(49);" class="fa fa-cloud-download"></a></a><div id="song49-videoId" link="" hidden></div><div class="dropdown-menu pull-right black lt"></div></div><div class="item-title text-ellipsis">
+                <a id="song49-title" ></a></div><div class="item-author text-sm text-ellipsis "><a id="song49-artist" onclick="execSearchSong(49);" class="text-muted"></a></div><div class="item-meta text-sm text-muted">
+                  </div></div></div></div>
+          <div class="col-xs-12" id="song50"><div class="item r" data-id="item-1" data-src=""><div class="item-media "><a id="song50-image"  class="item-media-content" style="background-image: url('images/b0.jpg');"></a>
+            <div class="item-overlay center"><button id="song50-play" onclick="changePlayerState(49);" class="btn-playpause">Play</button></div></div><div class="item-info"><div class="item-overlay bottom text-right">
+              <a href="#" class="btn-favorite"><i onclick="addToOnlineSongs(50);" class="fa fa-plus"></i></a><a href="#" class="btn-more" data-toggle="dropdown"><a id="50" onclick="addToDownloadedSongs(50);" class="fa fa-cloud-download"></a></a><div id="song50-videoId" link="" hidden></div><div class="dropdown-menu pull-right black lt"></div></div><div class="item-title text-ellipsis">
+                <a id="song50-title" ></a></div><div class="item-author text-sm text-ellipsis "><a id="song50-artist" onclick="execSearchSong(50);" class="text-muted"></a></div><div class="item-meta text-sm text-muted">
+                  </div></div></div></div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ############ PAGE END-->
+
+    </div>
+  </div>
+  <!-- / -->
+
+  <!-- ############ SEARCH START -->
+
+    <!-- ############ SEARCH END -->
+  <!-- ############ SHARE START -->
+  <div id="share-modal" class="modal fade animate">
+    <div class="modal-dialog">
+      <div class="modal-content fade-down">
+        <div class="modal-header">
+
+          <h5 class="modal-title">Share</h5>
+        </div>
+        <div class="modal-body p-lg">
+          <div id="share-list" class="m-b">
+            <a href="" class="btn btn-icon btn-social rounded btn-social-colored indigo" title="Facebook">
+                <i class="fa fa-facebook"></i>
+                <i class="fa fa-facebook"></i>
+            </a>
+
+            <a href="" class="btn btn-icon btn-social rounded btn-social-colored light-blue" title="Twitter">
+                <i class="fa fa-twitter"></i>
+                <i class="fa fa-twitter"></i>
+            </a>
+
+            <a href="" class="btn btn-icon btn-social rounded btn-social-colored red-600" title="Google+">
+                <i class="fa fa-google-plus"></i>
+                <i class="fa fa-google-plus"></i>
+            </a>
+
+            <a href="" class="btn btn-icon btn-social rounded btn-social-colored blue-grey-600" title="Trumblr">
+                <i class="fa fa-tumblr"></i>
+                <i class="fa fa-tumblr"></i>
+            </a>
+
+            <a href="" class="btn btn-icon btn-social rounded btn-social-colored red-700" title="Pinterst">
+                <i class="fa fa-pinterest"></i>
+                <i class="fa fa-pinterest"></i>
+            </a>
+          </div>
+          <div>
+            <input class="form-control" value="http://plamusic.com/slug"/>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ############ SHARE END -->
+
+<!-- ############ LAYOUT END-->
+  </div>
+  <div id="player1" hidden></div>
+  <div id="player2" hidden></div>
+  <div id="player3" hidden></div>
+  <div id="player4" hidden></div>
+  <div id="player5" hidden></div>
+  <div id="player6" hidden></div>
+  <div id="player7" hidden></div>
+  <div id="player8" hidden></div>
+  <div id="player9" hidden></div>
+  <div id="player10" hidden></div>
+  <div id="player11" hidden></div>
+  <div id="player12" hidden></div>
+  <div id="player13" hidden></div>
+  <div id="player14" hidden></div>
+  <div id="player15" hidden></div>
+  <div id="player16" hidden></div>
+  <div id="player17" hidden></div>
+  <div id="player18" hidden></div>
+  <div id="player19" hidden></div>
+  <div id="player20" hidden></div>
+  <div id="player21" hidden></div>
+  <div id="player22" hidden></div>
+  <div id="player23" hidden></div>
+  <div id="player24" hidden></div>
+  <div id="player25" hidden></div>
+  <div id="player26" hidden></div>
+  <div id="player27" hidden></div>
+  <div id="player28" hidden></div>
+  <div id="player29" hidden></div>
+  <div id="player30" hidden></div>
+  <div id="player31" hidden></div>
+  <div id="player32" hidden></div>
+  <div id="player33" hidden></div>
+  <div id="player34" hidden></div>
+  <div id="player35" hidden></div>
+  <div id="player36" hidden></div>
+  <div id="player37" hidden></div>
+  <div id="player38" hidden></div>
+  <div id="player39" hidden></div>
+  <div id="player40" hidden></div>
+  <div id="player41" hidden></div>
+  <div id="player42" hidden></div>
+  <div id="player43" hidden></div>
+  <div id="player44" hidden></div>
+  <div id="player45" hidden></div>
+  <div id="player46" hidden></div>
+  <div id="player47" hidden></div>
+  <div id="player48" hidden></div>
+  <div id="player49" hidden></div>
+  <div id="player50" hidden></div>
+
+
+
+<!-- build:js scripts/app.min.js -->
+<!-- jQuery -->
+  <script src="libs/jquery/dist/jquery.js"></script>
+<!-- Bootstrap -->
+  <script src="libs/tether/dist/js/tether.min.js"></script>
+  <script src="libs/bootstrap/dist/js/bootstrap.js"></script>
+<!-- core -->
+  <script src="libs/jQuery-Storage-API/jquery.storageapi.min.js"></script>
+  <script src="libs/jquery.stellar/jquery.stellar.min.js"></script>
+  <script src="libs/owl.carousel/dist/owl.carousel.min.js"></script>
+  <script src="libs/jscroll/jquery.jscroll.min.js"></script>
+  <script src="libs/PACE/pace.min.js"></script>
+  <script src="libs/jquery-pjax/jquery.pjax.js"></script>
+
+  <script src="libs/mediaelement/build/mediaelement-and-player.min.js"></script>
+  <script src="libs/mediaelement/build/mep.js"></script>
+  <script src="scripts/player.js"></script>
+
+  <script src="scripts/config.lazyload.js"></script>
+  <script src="scripts/ui-load.js"></script>
+  <script src="scripts/ui-jp.js"></script>
+  <script src="scripts/ui-include.js"></script>
+  <script src="scripts/ui-device.js"></script>
+  <script src="scripts/ui-form.js"></script>
+  <script src="scripts/ui-nav.js"></script>
+  <script src="scripts/ui-screenfull.js"></script>
+  <script src="scripts/ui-scroll-to.js"></script>
+  <script src="scripts/ui-toggle-class.js"></script>
+  <script src="scripts/ui-taburl.js"></script>
+  <script src="scripts/app.js"></script>
+  <script src="scripts/site.js"></script>
+  <script src="scripts/ajax.js"></script>
+<!-- endbuild -->
+</body>
+<script>
+var durationHasBeenLoaded = 0;
+var userId;
+
+function addToDownloadedSongs(num) {
+  var xmlhttp = new XMLHttpRequest();
+  xmlhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      var resp = JSON.parse(this.responseText);
+    }
+  };
+
+  var trackId = window['trackId' + num];
+
+  xmlhttp.open("GET","addToDownloadedSongs?trackId=" + trackId + "&userId=" + userId);
+  xmlhttp.send();
+}
+
+function addToOnlineSongs(num) {
+  var xmlhttp = new XMLHttpRequest();
+  xmlhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      var resp = JSON.parse(this.responseText);
+    }
+  };
+
+  var trackId = window['trackId' + num];
+
+  xmlhttp.open("GET","addToOnlineSongs?trackId=" + trackId + "&userId=" + userId);
+  xmlhttp.send();
+}
+
+function getUsername() {
+  var xmlhttp = new XMLHttpRequest();
+  xmlhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      var resp = JSON.parse(this.responseText);
+
+      document.getElementById("username").innerHTML = resp.username;
+      userId = resp.userId;
+    }
+  };
+
+  xmlhttp.open("GET","getUsername");
+  xmlhttp.send();
+}
+getUsername();
+
+function setVideoId(playerNum) {
+  var titleString = "song" + playerNum + "-title";
+  var artistString = "song" + playerNum + "-artist";
+
+  var tempTitleString = document.getElementById(titleString).innerHTML;
+  var tempArtistString = document.getElementById(artistString).innerHTML;
+
+  tempTitleString = tempTitleString.replace(/&amp;/g, " ");
+  tempTitleString = tempTitleString.replace(/-/g, " ");
+  tempArtistString = tempArtistString.replace(/&amp;/g, " ");
+  tempArtistString = tempArtistString.replace(/-/g, " ");
+
+  var xmlhttp2 = new XMLHttpRequest();
+  xmlhttp2.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      var resp2 = JSON.parse(this.responseText);
+      var idString = "song" + playerNum + "-videoId";
+
+      document.getElementById(idString).innerHTML = resp2.videoId;
+      document.getElementById(playerNum).href = "downloadSong?videoId=" + resp2.videoId + "&filename=" + tempArtistString + " - " + tempTitleString;
+    }
+  }
+
+
+
+  xmlhttp2.open("GET", "getVideoId?name=" + tempTitleString + "&artist=" + tempArtistString);
+  xmlhttp2.send();
+}
+
+/*  function blockDoublePress(num) {
+    document.getElementById(num).style = "pointer-events: none;cursor: default;";
+  }*/
+
+
+
+
+  var query = window.location.search.substr(9);
+  query = query.replace(/\+/g, " ")
+
+  document.getElementById("titleContent").innerHTML = "Search results for \"" + query + "\"";
+
+  function getSearchResponse() {
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        var resp = JSON.parse(this.responseText);
+
+        if (resp.error == "API error") {
+          console.log("Caught api error");
+        }
+        else {
+          for (var i = 1; i <= 50; i++) {
+            window['trackId' + i] = resp["song" + i + "_trackId"];
+            var idString = "song" + i;
+            var idStringName = "song" + i + "-title";
+            var nameField = "song" + i + "_name";
+            var idStringArtist = "song" + i + "-artist";
+            var artistField = "song" + i + "_artist";
+            var idStringImage = "song" + i + "-image";
+            var imageField = "song" + i + "_image";
+
+            var checkUndef = "" + resp[nameField];
+            if (checkUndef != "undefined") {
+              document.getElementById(idStringName).innerHTML = resp[nameField];
+              document.getElementById(idStringArtist).innerHTML = resp[artistField];
+              document.getElementById(idStringImage).style = "background-image: url(\"" + resp[imageField] + "\");";
+            }
+            else {
+              document.getElementById(idString).hidden = true;
+            }
+          }
+          for (var j = 1; j < 50; j++) {
+            setVideoId(j);
+          }
+        }
+      }
+    };
+
+    var reqString = "searchInfo?keyword=" + query;
+    xmlhttp.open("GET", reqString);
+    xmlhttp.send();
+  }
+
+  getSearchResponse();
+
+
+
+
+  var tag = document.createElement('script');
+
+  tag.src = "https://www.youtube.com/iframe_api";
+  var firstScriptTag = document.getElementsByTagName('script')[0];
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+  function modProgBar(myPlayer) {
+    var cur = myPlayer.getCurrentTime();
+    var dur = myPlayer.getDuration();
+    var styleCurrentProgress = 'width: ' + (1385*(cur/dur)) + 'px;';
+
+    document.getElementById("currentProgress").style = styleCurrentProgress;
+  }
+
+
+  function startCounter(currentPlayer) {
+    var tempMins = 0;
+    var number = currentPlayer.getCurrentTime(); // Get the number from paragraph
+
+
+    // Called the function in each second
+    var interval = setInterval(function () {
+        number = currentPlayer.getCurrentTime();
+        number = Math.floor(number);
+        if (number > 59 && tempMins < (Math.floor(number/60))) {
+            number = number - 60*(Math.floor(number/60)); // If exceeded 100, clear interval
+            tempMins++;
+        }
+        else if (number > 59 && tempMins >= (Math.floor(number/60))) {
+            number = number - 60*(Math.floor(number/60));
+        }
+
+        if (currentPlayer.getPlayerState() == 1) {
+            if (number > 9)
+                $('#test').text(tempMins + ":" + number); // Update the value in paragraph
+            else {
+                $('#test').text(tempMins + ":0" + number);
+            }
+            modProgBar(currentPlayer);
+        }
+
+        if ((currentPlayer.getDuration() - currentPlayer.getCurrentTime()) < 2) {
+          document.getElementById("nextButton").click();
+        }
+    }, 1000); // Run for each second
+  }
+
+
+  // 4. The API will call this function when the video player is ready.
+  function onPlayerReady(event) {
+  }
+
+  // 5. The API calls this function when the player's state changes.
+  //    The function indicates that when playing a video (state=1),
+  //    the player should play for six seconds and then stop.
+  function onPlayerStateChange(event) {
+    if (event.data == 1 && durationHasBeenLoaded == 0) {
+        durationHasBeenLoaded = 1;
+
+        var playerImageStringId = "song" + (this) + "-image";
+        var playerImageString = document.getElementById(playerImageStringId).style.cssText;
+        playerImageString = playerImageString.substring(23, playerImageString.length - 3);
+
+        var titleString = "song" + (this) + "-title";
+        var artistString = "song" + (this) + "-artist";
+
+        var tempTitleString = document.getElementById(titleString).innerHTML;
+        var tempArtistString = document.getElementById(artistString).innerHTML;
+
+        tempTitleString = tempTitleString.replace(/&amp;/g, " ");
+        tempArtistString = tempArtistString.replace(/&amp;/g, " ");
+
+        var dur = (playerArr[this - 1]).getDuration();
+        var mins = Math.floor(dur / 60);
+        var secs = Math.round(dur % 60);
+        if (secs < 10) {
+          secs = "0" + secs;
+        }
+
+        var hrefId = "song" + (this) + "-videoId";
+        var hrefIdString = document.getElementById(hrefId).innerHTML;
+
+        document.getElementById("temp1").hidden = false;
+        document.getElementById("temp2").childNodes[1].innerHTML = '<div class="mejs-inner"><div class="mejs-mediaelement"><audio src=""></audio></div><div class="mejs-layers"><div class="mejs-poster mejs-layer" style="display: none; width: 100%; height: 40px;"></div><div class="mejs-track-actions"><a href="downloadSong?videoId=' + hrefIdString + '&filename=' + tempArtistString + ' - ' + tempTitleString + '" class="fa fa-cloud-download"></a></button></div><a class="mejs-track-artwork" style="background-image: url(' + playerImageString + ');"></a><div class="mejs-track-details"><span class="mejs-track-title"><a>' + tempTitleString + '</a></span><span class="mejs-track-author"><a onclick="execSearchSong(' + this + ')">' + tempArtistString + '</a></span></div><div class="mejs-track-source"><i></i></div><div class="mejs-overlay-error mejs-layer" style="display: none; width: 100%; height: 40px;"><div class="mejs-error"></div></div></div><div class="mejs-controls"><div id="currentPlayerState" onclick="changePlayerState(' + (this - 1) + ');" class="mejs-button mejs-playpause-button mejs-pause"><button type="button" aria-controls="mep_0" title="Play" aria-label="Play"></button></div><div id="nextButton" class="mejs-button mejs-next-button mejs-next" onclick="changePlayerState(' + (this) + ');"><button type="button" aria-controls="mep_0" title="Next Track"></button></div><div class="mejs-time-rail" onclick="adjustCurrentTime(' + (this - 1) +')" style="width: 100%;"><span class="mejs-time-total mejs-time-slider" style="width: 1385px;" aria-label="Time Slider" aria-valuemin="0" aria-valuemax="NaN" aria-valuenow="0" aria-valuetext="00:00" role="slider" tabindex="0"><span class="mejs-time-buffering" style="display: none;"></span><span class="mejs-time-loaded" style="width: 0px;"></span><span id="currentProgress" class="mejs-time-current" ></span><span class="mejs-time-handle" style="left: -5px;"></span><span class="mejs-time-float"><span class="mejs-time-float-current">00:00</span><span class="mejs-time-float-corner"></span></span></span></div><div class="mejs-time" role="timer" aria-live="on"><span id="test" class="mejs-currenttime">00:00</span><span class="mejs-time-separator"> / </span><span class="mejs-duration">' + mins + ":" + secs + '</span></div></div><div class="mejs-clear"></div></div>';
+
+        startCounter(playerArr[this - 1]);
+
+        document.getElementById("currentPlayerState").className = ("mejs-button\ mejs-playpause-button\ mejs-pause");
+    }
+    else if (event.data == 1 && durationHasBeenLoaded == 1) {
+      document.getElementById("currentPlayerState").className = ("mejs-button\ mejs-playpause-button\ mejs-pause");
+    }
+    else if (event.data == 2) {
+      document.getElementById("currentPlayerState").className = ("mejs-button\ mejs-playpause-button\ mejs-play");
+    }
+    if (event.data == 0) { // if playback finished
+      changePlayerState(this);
+      //document.getElementById("currentPlayerState").className = ("mejs-button\ mejs-playpause-button\ mejs-pause");
+    }
+  }
+
+  function proxyDownload(num) {
+    document.getElementById(num).click();
+  }
+
+
+  var trackId1 = 0;
+  var trackId2 = 0;
+  var trackId3 = 0;
+  var trackId4 = 0;
+  var trackId5 = 0;
+  var trackId6 = 0;
+  var trackId7 = 0;
+  var trackId8 = 0;
+  var trackId9 = 0;
+  var trackId10 = 0;
+  var trackId11 = 0;
+  var trackId12 = 0;
+  var trackId13 = 0;
+  var trackId14 = 0;
+  var trackId15 = 0;
+  var trackId16 = 0;
+  var trackId17 = 0;
+  var trackId18 = 0;
+  var trackId19 = 0;
+  var trackId20 = 0;
+  var trackId21 = 0;
+  var trackId22 = 0;
+  var trackId23 = 0;
+  var trackId24 = 0;
+  var trackId25 = 0;
+  var trackId26 = 0;
+  var trackId27 = 0;
+  var trackId28 = 0;
+  var trackId29 = 0;
+  var trackId30 = 0;
+  var trackId31 = 0;
+  var trackId32 = 0;
+  var trackId33 = 0;
+  var trackId34 = 0;
+  var trackId35 = 0;
+  var trackId36 = 0;
+  var trackId37 = 0;
+  var trackId38 = 0;
+  var trackId39 = 0;
+  var trackId40 = 0;
+  var trackId41 = 0;
+  var trackId42 = 0;
+  var trackId43 = 0;
+  var trackId44 = 0;
+  var trackId45 = 0;
+  var trackId46 = 0;
+  var trackId47 = 0;
+  var trackId48 = 0;
+  var trackId49 = 0;
+  var trackId50 = 0;
+
+
+  var totalSongs = 50;
+  var player1 = 0;
+  var player2 = 0;
+  var player3 = 0;
+  var player4 = 0;
+  var player5 = 0;
+  var player6 = 0;
+  var player7 = 0;
+  var player8 = 0;
+  var player9 = 0;
+  var player10 = 0;
+  var player11 = 0;
+  var player12 = 0;
+  var player13 = 0;
+  var player14 = 0;
+  var player15 = 0;
+  var player16 = 0;
+  var player17 = 0;
+  var player18 = 0;
+  var player19 = 0;
+  var player20 = 0;
+  var player21 = 0;
+  var player22 = 0;
+  var player23 = 0;
+  var player24 = 0;
+  var player25 = 0;
+  var player26 = 0;
+  var player27 = 0;
+  var player28 = 0;
+  var player29 = 0;
+  var player30 = 0;
+  var player31 = 0;
+  var player32 = 0;
+  var player33 = 0;
+  var player34 = 0;
+  var player35 = 0;
+  var player36 = 0;
+  var player37 = 0;
+  var player38 = 0;
+  var player39 = 0;
+  var player40 = 0;
+  var player41 = 0;
+  var player42 = 0;
+  var player43 = 0;
+  var player44 = 0;
+  var player45 = 0;
+  var player46 = 0;
+  var player47 = 0;
+  var player48 = 0;
+  var player49 = 0;
+  var player50 = 0;
+
+  var aa = 2;
+  var ab = 2;
+  var ac = 2;
+  var ad = 2;
+  var ae = 2;
+  var af = 2;
+  var ag = 2;
+  var ah = 2;
+  var ai = 2;
+  var aj = 2;
+  var ak = 2;
+  var al = 2;
+  var am = 2;
+  var an = 2;
+  var ao = 2;
+  var ap = 2;
+  var aq = 2;
+  var ar = 2;
+  var as = 2;
+  var at = 2;
+  var au = 2;
+  var av = 2;
+  var aw = 2;
+  var ax = 2;
+  var ay = 2;
+  var az = 2;
+  var ba = 2;
+  var bb = 2;
+  var bc = 2;
+  var bd = 2;
+  var be = 2;
+  var bf = 2;
+  var bg = 2;
+  var bh = 2;
+  var bi = 2;
+  var bj = 2;
+  var bk = 2;
+  var bl = 2;
+  var bm = 2;
+  var bn = 2;
+  var bo = 2;
+  var bp = 2;
+  var bq = 2;
+  var br = 2;
+  var bs = 2;
+  var bt = 2;
+  var bu = 2;
+  var bv = 2;
+  var bw = 2;
+  var bx = 2;
+
+  var playerArr = [player1, player2, player3, player4, player5, player6, player7, player8, player9, player10, player11, player12, player13, player14, player15, player16, player17, player18, player19, player20, player21, player22, player23, player24, player25, player26, player27, player28, player29, player30, player31, player32, player33, player34, player35, player36, player37, player38, player39, player40, player41, player42, player43, player44, player45, player46, player47, player48, player49, player50];
+  var playerVars = [aa, ab, ac, ad, ae, af, ag, ah, ai, aj, ak, al, am, an, ao, ap, aq, ar, as, at, au, av, aw, ax, ay, az, ba, bb, bc, bd, be, bf, bg, bh, bi, bj, bk, bl, bm, bn, bo, bp, bq, br, bs, bt, bu, bv, bw, bx];
+
+  function checkPlayerStates(playerNum) {
+    for (var i = 0; i < totalSongs; i++) {
+      if ((playerArr[i] != 0) && ((i+1) != playerNum)) {
+        (playerArr[i]).seekTo(0, true);
+        (playerArr[i]).pauseVideo();
+        playerVars[i] = 4;
+        durationHasBeenLoaded = 0;
+      }
+    }
+  }
+
+  function instantiateNewPlayer(playerNum) {
+    var xmlhttp2 = new XMLHttpRequest();
+    xmlhttp2.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        var resp2 = JSON.parse(this.responseText);
+        var idString = "song" + playerNum + "-videoId";
+
+        document.getElementById(idString).innerHTML = resp2.videoId;
+
+        checkPlayerStates(playerNum);
+
+        var tempVideoId = document.getElementById(idString).innerHTML;
+
+        var playerString = 'player' + playerNum;
+        var onPlayerEnd = onPlayerStateChange.bind(playerNum);
+
+        durationHasBeenLoaded = 0;
+
+        window[playerString] = new YT.Player(playerString, {
+          height: '1',
+          width: '1',
+          videoId: tempVideoId,
+          playerVars: { 'autoplay': 1, 'controls': 0 },
+          events: {
+            'onReady': onPlayerReady,
+            'onStateChange': onPlayerEnd
+          }
+        });
+        playerArr[(playerNum - 1)] = window[playerString];
+      }
+    }
+
+    var titleString = "song" + playerNum + "-title";
+    var artistString = "song" + playerNum + "-artist";
+
+    var tempTitleString = document.getElementById(titleString).innerHTML;
+    var tempArtistString = document.getElementById(artistString).innerHTML;
+
+    tempTitleString = tempTitleString.replace(/&amp;/g, " ");
+    tempTitleString = tempTitleString.replace(/-/g, " ");
+    //tempTitleString = titleString.replace(/\&/, " ");
+    tempArtistString = tempArtistString.replace(/&amp;/g, " ");
+    tempArtistString = tempArtistString.replace(/-/g, " ");
+
+    xmlhttp2.open("GET", "getVideoId?name=" + tempTitleString + "&artist=" + tempArtistString);
+    xmlhttp2.send();
+  }
+
+  function switchCurrentSongImage(temp) {
+    var sty = "" + (document.getElementById("song" + (temp + 1) + "-image").style).cssText;
+    document.getElementById("currentSongImage").src = sty.substring(23, sty.length - 3);
+  }
+
+  function changePlayerState(num) {
+    if (num < 0) {
+      console.log("Invalid index");
+    }
+    else if (playerVars[num] == 2) {
+          switchCurrentSongImage(num);
+          instantiateNewPlayer((num + 1));
+
+          playerVars[num]++;
+        }
+        else if (playerVars[num] % 2 == 0) {
+          checkPlayerStates((num + 1));
+
+          (playerArr[num]).playVideo();
+          playerVars[num]++;
+        }
+        else {
+          (playerArr[num]).pauseVideo();
+          playerVars[num]++;
+        }
+  }
+
+  function adjustCurrentTime(num) {
+    var x = event.clientX - 56;
+    var dur = playerArr[num].getDuration();
+    dur = Math.round(dur);
+    var newPercentage = x*1.0 / 1385*1.0;
+
+    playerArr[num].seekTo(dur*newPercentage, true);
+  }
+
+  //// New Tab Transitions ////
+
+
+  function fillDiscoverArtistsContent(numElements) {
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        var resp = JSON.parse(this.responseText);
+
+        for (var i = 0; i < numElements; i++) {
+          document.getElementById("artist" + (i+1) + "-name").innerHTML = (resp.artists.artist[i]).name;
+          document.getElementById("artist" + (i+1) + "-image").style = "background-image: url('" + (resp.artists.artist[i]).image[3]["#text"] + "');";
+        }
+      }
+    };
+
+    xmlhttp.open("GET","https://ws.audioscrobbler.com/2.0/?method=chart.gettopartists&api_key=22744f465ad4aabca79281208f1e5ea2&format=json");
+    xmlhttp.send();
+  }
+
+  function fillDiscoverSongsContent(numElements) {
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        var resp = JSON.parse(this.responseText);
+
+        for (var i = 0; i < numElements; i++) {
+          document.getElementById("song" + (i+1) + "-title").innerHTML = (resp.tracks.track[i]).name;
+          document.getElementById("song" + (i+1) + "-artist").innerHTML = (resp.tracks.track[i]).artist.name;
+          document.getElementById("song" + (i+1) + "-image").style = "background-image: url('" + (resp.tracks.track[i]).image[3]["#text"] + "');";
+        }
+      }
+    };
+
+    xmlhttp.open("GET","https://ws.audioscrobbler.com/2.0/?method=chart.gettoptracks&api_key=22744f465ad4aabca79281208f1e5ea2&format=json");
+    xmlhttp.send();
+  }
+
+  function fillChartContent(numElements) {
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        var resp = JSON.parse(this.responseText);
+
+        for (var i = 0; i < numElements; i++) {
+          document.getElementById("song" + (i+1) + "-title").innerHTML = (resp[i]).title;
+          document.getElementById("song" + (i+1) + "-artist").innerHTML = (resp[i]).artist;
+
+          var coverString = "" + (resp[i]).cover;
+          if (coverString != "undefined") {
+            document.getElementById("song" + (i+1) + "-image").style = "background-image: url('http://" + (resp[i]).cover + "');";
+          }
+        }
+      }
+    };
+
+    xmlhttp.open("GET","chartContent");
+    xmlhttp.send();
+  }
+
+  function execSearch(artistNum) {
+    var artistNameElementString = "artist" + artistNum + "-name";
+    var artistNameString = document.getElementById(artistNameElementString).innerHTML;
+    artistNameString = artistNameString.replace(/ /g, '+');
+    window.location.assign("search?keyword=" + artistNameString);
+  }
+
+  function execSearchSong(songNum) {
+    var artistNameElementString = "song" + songNum + "-artist";
+    var artistNameString = document.getElementById(artistNameElementString).innerHTML;
+    artistNameString = artistNameString.replace(/ /g, '+');
+    window.location.assign("search?keyword=" + artistNameString);
+  }
+
+
+</script>
+</html>
